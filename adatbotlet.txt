@@ -1,0 +1,8 @@
+vizsgaremek mit akkarunk:
+ADATBAZIS:
+keres:
+felhasznaloid zeneid mikorjatszodikle 
+zene tabla:
+zenelink zenehossz előadó alkalmaslejatszasra zenecime
+felhasznalo:
+felhasznaloid felhasznalonev jelszohash email letiltott jogosultsag 
