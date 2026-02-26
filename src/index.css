@@ -1,0 +1,5 @@
+/* Base reset - all styles are in styles/main.css */
+body {
+  margin: 0;
+  min-width: 320px;
+}
