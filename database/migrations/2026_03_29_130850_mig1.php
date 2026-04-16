@@ -146,72 +146,14 @@ $table->timestamp('meddig')->default(now());
          public function up(): void
     {
         //
-        
-        if (!Schema::hasTable('felhasznalo')) {
-            Schema::create('felhasznalo', function (Blueprint $table) {
-            
-             $table->engine='InnoDB';
-          //  $table->unsignedBigInteger('felhasznaloid')->primary()->autoIncrement();
-          $table->id(); 
-          $table->text('jelszoh')->comment('hashben');//->nullable();
-            $table->text('keresztnev');//->unique();
-            $table->text('vezeteknev');//->unique();
-            $table->text('email')->nullable()->unique();
-            $table->boolean('letiltott')->default(false);
-            $table->enum('jog',["demo","normalis","admin","tanar","asztali"]);//->nullable();
-            //torolve bool oszlop
-            $table->string("omazonosito",11)->nullable()->unique();
-            $table->timestamps(6);
-            $table->boolean("emailverifikalva")->default(false);
-            $table->string("token")->nullable();
-            });
-            //credential userhez lehetne kulon tabla foreignid
-        }
-        if (!Schema::hasTable('keres')) {
-             Schema::create('keres', function (Blueprint $table) {
-
-              $table->engine='InnoDB';
-                //zene bekeresnel ide kerul adat is ....
-           // $table->unsignedBigInteger('keresid')->primary()->autoIncrement();
-             //keresid?=rajid
-             $table->id();
-             $table->foreignId('felhasznaloid')->constrained('felhasznalo');//->onDelete('');
-           // $table->foreignId('zeneid')->constrained('zene');//->onDelete('');
-           $table->text('zeneurl');//->unique();
-         //  $table->text('zenecim')->nullable();
-          // $table->text('z')
-            $table->boolean('validalte')->default(false);
-           // $table->timestamps();
-           $table->timestamp('mikor')->default(now());
-            
-            
-            });
-        }
-        if (!Schema::hasTable('zene')) {
-        Schema::create('zene', function (Blueprint $table) {
+          if (!Schema::hasTable("jogok")) {
+          Schema::create("jogok", function (Blueprint $table) {
+  $table->engine= "InnoDB";
+  $table->unsignedTinyInteger("szint")->primary()->index();
+  $table->text("jog")->unique();
 
 
-    $table->engine='InnoDB';
-    
-       // $table->bigIncrements('id');
-        //    $table->unsignedBigInteger('zeneid')->primary()->autoIncrement();
-       $table->id();
-       $table->text('zeneurl')->unique()->nullable();//->nullable(); ///NULLABOL LEHET TOBB EZ MOST JO DE ERDEKES
-   //  $table->foreign('zeneurl')->references('zeneurl')->on('keres');//->onDelete('');
-            $table->text('eloado')->nullable();
-            $table->text('cim')->nullable();//defaultnak a url utolso / utani resze, de dinamikusan talan after funkcioval  default();//slug
-            //$table->slug=
-            $table->boolean('lejatszhatoe')->default(true);
-            $table->unsignedBigInteger('hossz')->nullable();
-            $table->text('tema')->nullable();
-            //torolve bool oszlop?
-            $table->timestamps(6);
-            
-       $table->text("keresurl")->unique()->nullable();
-       //$table->foreign('keresid')->references('id')->on("keres"); //egy zenehez nem csak egy keres tartozhat de egy kereshez egy zene de keresbe nem lehet zeneid mert meg akkor nincs zenerekord
-
-
-            });
+          });
         }
         if (!Schema::hasTable('esemeny')) {
 
@@ -233,6 +175,87 @@ $table->timestamp('meddig')->default(now());
   //  $table->timestamps();
               });
         }
+          if (!Schema::hasTable('szunetek')) {
+          Schema::create('szunetek', function (Blueprint $table) {
+        $table->engine='InnoDB';
+        $table->integer("hanyadik")->primary()->index();
+        $table->timestamp("kezdes")->useCurrent();
+        $table->timestamp("vege")->useCurrent();
+
+
+          });
+        }
+        if (!Schema::hasTable('felhasznalo')) {
+            Schema::create('felhasznalo', function (Blueprint $table) {
+            
+             $table->engine='InnoDB';
+          //  $table->unsignedBigInteger('felhasznaloid')->primary()->autoIncrement();
+          $table->id(); 
+          $table->text('jelszoh')->comment('hashben');//->nullable();
+            $table->text('keresztnev');//->unique();
+            $table->text('vezeteknev');//->unique();
+            $table->text('email')->nullable()->unique();
+            $table->boolean('letiltott')->default(false);
+           // $table->enum('jog',["demo","normalis","admin","tanar","asztali"]);//->nullable();
+          $table->unsignedTinyInteger('jog');
+            //torolve bool oszlop
+            $table->string("omazonosito",11)->nullable()->unique();
+            $table->timestamps(6);
+            $table->boolean("emailverifikalva")->default(false);
+            $table->string("token")->nullable()->index();
+           
+            $table->timestamp("tokenvaliditasanakvege")->nullable();
+             $table->foreign('jog')->references('szint')->on('jogok');
+            });
+            //credential userhez lehetne kulon tabla foreignid
+        }
+        if (!Schema::hasTable('keres')) {
+             Schema::create('keres', function (Blueprint $table) {
+
+              $table->engine='InnoDB';
+                //zene bekeresnel ide kerul adat is ....
+           // $table->unsignedBigInteger('keresid')->primary()->autoIncrement();
+             //keresid?=rajid
+             $table->id();
+             $table->foreignId('felhasznaloid')->constrained('felhasznalo');//->onDelete('');
+           // $table->foreignId('zeneid')->constrained('zene');//->onDelete('');
+           $table->text('zeneurl')->index();//->unique();
+         //  $table->text('zenecim')->nullable();
+          // $table->text('z')
+            $table->boolean('validalte')->default(false);
+           // $table->timestamps();
+           $table->timestamp('mikor')->default(now());
+            
+            
+            });
+        }
+        if (!Schema::hasTable('zene')) {
+        Schema::create('zene', function (Blueprint $table) {
+
+
+    $table->engine='InnoDB';
+    
+       // $table->bigIncrements('id');
+        //    $table->unsignedBigInteger('zeneid')->primary()->autoIncrement();
+       $table->id();
+       $table->text('zeneurl')->unique()->nullable()->index();//->nullable(); ///NULLABOL LEHET TOBB EZ MOST JO DE ERDEKES
+   //  $table->foreign('zeneurl')->references('zeneurl')->on('keres');//->onDelete('');
+            $table->text('eloado')->nullable();
+            $table->text('cim')->nullable();//defaultnak a url utolso / utani resze, de dinamikusan talan after funkcioval  default();//slug
+            //$table->slug=
+            $table->boolean('lejatszhatoe')->default(true);
+            $table->unsignedBigInteger('hossz')->nullable();
+            $table->text('tema')->nullable();
+            //torolve bool oszlop?
+            $table->timestamps(6);
+            
+       $table->text("keresurl")->unique()->nullable();
+       //$table->foreign('keresid')->references('id')->on("keres"); //egy zenehez nem csak egy keres tartozhat de egy kereshez egy zene de keresbe nem lehet zeneid mert meg akkor nincs zenerekord
+
+
+            });
+        }
+        
           
         if (!Schema::hasTable('orarend')) {
     Schema::create('orarend', function (Blueprint $table) {
@@ -240,12 +263,14 @@ $table->timestamp('meddig')->default(now());
    // $table->unsignedBigInteger('esemenyid')->primary()->autoIncrement();
    $table->id();      
    $table->foreignId('zeneid')->constrained('zene');//->onDelete('');
-   $table->timestamp('mikortol')->default(now());
+   $table->timestamp('mikortol')->default(now())->index();
 $table->timestamp('meddig')->default(now());
    //$table->enum("lejatszva");
         });
         }
-
+      
+      
+  
        // if (!Schema::hasTable('szesion')) {
        if(false){
 
@@ -281,7 +306,7 @@ DB::unprepared(' CREATE TRIGGER IF NOT EXISTS zenebekeresfeltoltesorarendbe AFTE
      //   DB::unprepared(' CREATE TRIGGER IF NOT EXISTS zenebekeresvalidaciofrissitesorarendbehelyezes AFTER UPDATE on keres FOR EACH ROW    IF ( (NEW.validalte=1 | NEW.validalte=TRUE) && ((SELECT lejatszhatoe from zene where id like NEW.zeneid LIMIT 1 ) IN (TRUE,1))) THEN INSERT INTO orarend (zeneid,mikortol,meddig) VALUES (NEW.zeneid,select meddig from orarend ORDER BY mikortol DESC LIMIT 1,
     //    select TIMESTAMPADD(SECOND,(select hossz from zene where id like NEW.zeneid), (SELECT meddig from orarend ORDER BY mikortol  DESC LIMIT 1)));END IF;');
       DB::unprepared('CREATE VIEW IF NOT EXISTS aktivfelhasznalok as SELECT count(id) from felhasznalo where token is not null');
-    
+    DB::unprepared('CREATE VIEW IF NOT EXISTS Lejatszhatozenek as select * from zene where zene.zeneurl is not null');
     }
     /**
      * Reverse the migrations.
@@ -289,12 +314,16 @@ DB::unprepared(' CREATE TRIGGER IF NOT EXISTS zenebekeresfeltoltesorarendbe AFTE
     public function down(): void
     {
         //
-        Schema::dropIfExists('zene');
-        Schema::dropIfExists('felhasznalo');
-        Schema::dropIfExists('keres');
+       Schema::dropIfExists('szunetek');
+    
+        Schema::dropIfExists('jogok');
         Schema::dropIfExists('esemeny');
         Schema::dropIfExists('orarend');
         Schema::dropIfExists('szesion');
-        
+        Schema::dropIfExists('zene');
+        Schema::dropIfExists('keres');
+        Schema::dropIfExists('felhasznalo');
+        Schema::dropIfExists('szunetek');
+
     }
 };
