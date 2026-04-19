@@ -198,6 +198,8 @@ $table->timestamp('meddig')->default(now());
             $table->boolean('letiltott')->default(false);
            // $table->enum('jog',["demo","normalis","admin","tanar","asztali"]);//->nullable();
           $table->unsignedTinyInteger('jog');
+         // bcrypt()
+        // Hash::make('')->nullable();
             //torolve bool oszlop
             $table->string("omazonosito",11)->nullable()->unique();
             $table->timestamps(6);
