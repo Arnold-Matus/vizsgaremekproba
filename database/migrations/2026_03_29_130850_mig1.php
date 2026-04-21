@@ -219,7 +219,7 @@ $table->timestamp('meddig')->default(now());
            // $table->unsignedBigInteger('keresid')->primary()->autoIncrement();
              //keresid?=rajid
              $table->id();
-             $table->foreignId('felhasznaloid')->constrained('felhasznalo');//->onDelete('');
+             $table->foreignId('felhasznaloid')->references('id')->on('felhasznalo');//->constrained('felhasznalo');//->onDelete('');
            // $table->foreignId('zeneid')->constrained('zene');//->onDelete('');
            $table->text('zeneurl')->index();//->unique();
          //  $table->text('zenecim')->nullable();
@@ -264,7 +264,7 @@ $table->timestamp('meddig')->default(now());
     $table->engine= 'InnoDB';
    // $table->unsignedBigInteger('esemenyid')->primary()->autoIncrement();
    $table->id();      
-   $table->foreignId('zeneid')->constrained('zene');//->onDelete('');
+   $table->foreignId('zeneid')->references('id')->on('zene');//->constrained('zene');//->onDelete('');
    $table->timestamp('mikortol')->default(now())->index();
 $table->timestamp('meddig')->default(now());
    //$table->enum("lejatszva");

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\felhasznalomodel;
+use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class felhasznalokontroller extends Controller
 {
@@ -71,10 +73,17 @@ public function tokenheztartozofelhasznalo($token){
        else{
         felhasznalomodel::create(['jelszoh'=> md5($request->jelszo),'keresztnev'=>$request->keresztnev,'vezeteknev'=>$request->vezeteknev,'email'=>$request->email,'jog'=>$request->jog,'omazonosito'=>$request->omazonosito,'created_at'=>now()]);//\Auth::user()->id,''=>$validalas->id]);
        }*/
-      $validalt=$request->validate(['email'=>'required|unique:felhasznalo|email','jelszo'=>'required|regex:(^[-A-Za-z0-9+/=]|=[^=]|={3,}$)|min:6','keresztnev'=>'required|min:2|regex:(^[\p{L}+]$)','vezeteknev'=>'required|min:3|regex:(^[\p{L}+]$)','omazonosito'=>'sometimes|min:11|max:11|regex:(^[\d]{11}$)']); //https://stackoverflow.com/questions/475074/regex-to-parse-or-validate-base64-data
-      if($validalt->fails()){ return response()->json($validalt->errors(),403,["Content-Type"=>"applocation/json"]); }
+// $jelszregex="@(^[-A-Za-z0-9+/=]|=[^=]|={3,}$)@";
+    //  $validalt=$request->validate(['email'=>'required|unique:felhasznalo|email','jelszo'=>'required|regex:(^[-A-Za-z0-9+/=]|=[^=]|={3,}$)|min:6','keresztnev'=>'required|min:2|regex:(^[\p{L}+]$)','vezeteknev'=>'required|min:3|regex:(^[\p{L}+]$)','omazonosito'=>'sometimes|min:11|max:11|regex:(^[\d]{11}$)']); //https://stackoverflow.com/questions/475074/regex-to-parse-or-validate-base64-data
+      $validalt=Validator::make( $request->all(),['email'=>'required|unique:felhasznalo|email',['jelszo'=>['required|min:6|regex:@(^[-A-Za-z0-9+/=]|=[^=]|={3,}$)@']],'keresztnev'=>'required|min:2|regex:/(^[\p{L}]+$)/','vezeteknev'=>'required|min:3|regex:/(^[\p{L}]+$)/','omazonosito'=>'sometimes|min:11|max:11|regex:/(^[\d]{11}$)/']); //https://stackoverflow.com/questions/475074/regex-to-parse-or-validate-base64-data
+      //if($validalt->fails())
+      if($validalt->fails()){
+       // { return response()->json($validalt->errors(),403,["Content-Type"=>"applocation/json"]); }
+        return response()->json($validalt->errors(),403,["Content-Type"=>"applocation/json"]); }
         try{
-            felhasznalomodel::create(["email"=>$validalt["email"],'keresztnev'=>$validalt['keresztnev'],'vezeteknev'=>$validalt['vezeteknev'],'jelszoh'=>bcrypt(base64_decode( $validalt['jelszoh'],true) ),'jog'=>2,'omazonosito'=>$validalt['omazonosito']]);
+          // return response($validalt->getData()['jelszo'],301);
+         //   felhasznalomodel::create(["email"=>$validalt->safe(["email"]),'keresztnev'=>$validalt['keresztnev'],'vezeteknev'=>$validalt['vezeteknev'],'jelszoh'=>bcrypt(base64_decode( $validalt['jelszoh'],true) ),'jog'=>2,'omazonosito'=>$validalt['omazonosito']]);
+          felhasznalomodel::create(["email"=>$validalt->getData()["email"],'keresztnev'=>$validalt->getData()['keresztnev'],'vezeteknev'=>$validalt->getData()['vezeteknev'],'jelszoh'=>bcrypt(base64_decode( $validalt->getData()['jelszo'],true) ),'jog'=>2,'omazonosito'=>$validalt->getData()['omazonosito']]);
        return response('regisztralva',201);
             }
     catch (Exception $e) { return response($e->getMessage(),500); }
@@ -124,6 +133,11 @@ if($felhasznalo->jog<4){ return response('nincs ehez joga',403); }
 if(!$felhasznalo){return response('nincs ilyen felhasznalo',404);}
 $felhasznalo->delete();
 return response('ont sikeresen toroluk',200);
+}
+public function aktivfelhasznaloszam(Request $request){
+   //return $this->jadwal($request);
+   return  response(  DB::select('SELECT * from aktivfelhasznalok'),200);
+
 }
     /**
      * Store a newly created resource in storage.

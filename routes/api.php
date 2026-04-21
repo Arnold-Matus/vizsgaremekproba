@@ -20,6 +20,7 @@ Route::get('/kilepes',[felhasznalokontroller::class,'kilepes']);
 Route::get('/kileptetesemailalapjan/{email}',[felhasznalokontroller::class,'kileptetesemailalapjan']);
 Route::delete('/felhasznalotorlese/{email}',[felhasznalokontroller::class,'felhasznalotorlesemailalapjan']);
 Route::delete('/felhasznalotorlese',[felhasznalokontroller::class,'jelenlegifelhasznalotorlese']);
+Route::get('/aktivfelhasznaloszam',[felhasznalokontroller::class,'aktivfelhasznaloszam']);
 /* Source - https://stackoverflow.com/a/77859972
 // Posted by Rashid
 // Retrieved 2026-04-19, License - CC BY-SA 4.0
