@@ -38,7 +38,7 @@ public function tokenheztartozofelhasznalo($token){
     return felhasznalomodel::where("token",$token)->first();
 
 }
-    public function bejelnetkezes(Request $request){
+    public function bejelentkezes(Request $request){
    /*     $token= $request->headers("token");
         if($token== "" | $token == null){ return response("nincs token",403);}
        // else{ return response("",0); }
@@ -46,10 +46,10 @@ public function tokenheztartozofelhasznalo($token){
        if()*/ //bejelnetkezesnel nincs meg token
        $email= base64_decode( $request->email,true);
        $jelszo=base64_decode($request->jelszo,true);
-       if($email== ""|| $jelszo== ""){ return response("nincs",401); }
+       if(!$request->has("email")|| ! $request->has("jelszo")){ return response("nincs minden adat megadva",401); }
        $felhasznalo = felhasznalomodel::where("email",$email)->first();
        if($felhasznalo==null){ return response("nincs ilyen felhasznalo",401); }
-       if($felhasznalo->jelszoh==bcrypt( $jelszo) ){ return response("rossz jelszo",401); }
+       if($felhasznalo->jelszoh==bcrypt(base64_decode(  $jelszo,true)) ){ return response("rossz jelszo",401); }
         $felhasznalo=$this->tokenkeszites($felhasznalo,0);
         return response($felhasznalo->token,200);
     }
@@ -84,6 +84,46 @@ public function tokenheztartozofelhasznalo($token){
           // return response($validalt->getData()['jelszo'],301);
          //   felhasznalomodel::create(["email"=>$validalt->safe(["email"]),'keresztnev'=>$validalt['keresztnev'],'vezeteknev'=>$validalt['vezeteknev'],'jelszoh'=>bcrypt(base64_decode( $validalt['jelszoh'],true) ),'jog'=>2,'omazonosito'=>$validalt['omazonosito']]);
           felhasznalomodel::create(["email"=>$validalt->getData()["email"],'keresztnev'=>$validalt->getData()['keresztnev'],'vezeteknev'=>$validalt->getData()['vezeteknev'],'jelszoh'=>bcrypt(base64_decode( $validalt->getData()['jelszo'],true) ),'jog'=>2,'omazonosito'=>$validalt->getData()['omazonosito']]);
+       return response('regisztralva',201);
+            }
+    catch (Exception $e) { return response($e->getMessage(),500); }
+      }
+      public function regisztraciobarmilyenjogut(Request $request){
+
+      $token=$request->header('token');
+      if(!$token) {return response("nincs token megadva",404);}
+      $felhasznalo= $this->tokenheztartozofelhasznalo( $token );
+      if(!$felhasznalo){return response("rossz token",404); }
+
+      
+   /* function jogkezeles($jogg,Request $request){
+    if($jogg=="admin" && $request->user()->jog=="admin"){
+
+    }
+    }
+       // $_COOKIE[""] = $request->session()->get("");
+   // $keresztnve=$request->keresztnev;
+   // $vezeteknev=$request->vezeteknev;
+    $validalas= $request->validate([]);
+    if($validalas->fails()){
+       // return redirect()->back()->withErrors($validalas->errors());
+   return response("nem validalt",404);
+       }
+       else{
+        felhasznalomodel::create(['jelszoh'=> md5($request->jelszo),'keresztnev'=>$request->keresztnev,'vezeteknev'=>$request->vezeteknev,'email'=>$request->email,'jog'=>$request->jog,'omazonosito'=>$request->omazonosito,'created_at'=>now()]);//\Auth::user()->id,''=>$validalas->id]);
+       }*/
+// $jelszregex="@(^[-A-Za-z0-9+/=]|=[^=]|={3,}$)@";
+    //  $validalt=$request->validate(['email'=>'required|unique:felhasznalo|email','jelszo'=>'required|regex:(^[-A-Za-z0-9+/=]|=[^=]|={3,}$)|min:6','keresztnev'=>'required|min:2|regex:(^[\p{L}+]$)','vezeteknev'=>'required|min:3|regex:(^[\p{L}+]$)','omazonosito'=>'sometimes|min:11|max:11|regex:(^[\d]{11}$)']); //https://stackoverflow.com/questions/475074/regex-to-parse-or-validate-base64-data
+      $validalt=Validator::make( $request->all(),['email'=>'required|unique:felhasznalo|email',['jelszo'=>['required|min:6|regex:@(^[-A-Za-z0-9+/=]|=[^=]|={3,}$)@']],'keresztnev'=>'required|min:2|regex:/(^[\p{L}]+$)/','vezeteknev'=>'required|min:3|regex:/(^[\p{L}]+$)/','omazonosito'=>'sometimes|min:11|max:11|regex:/(^[\d]{11}$)/','jog'=>'required|regex:/(^[\d]{1}$)/']); //https://stackoverflow.com/questions/475074/regex-to-parse-or-validate-base64-data
+      //if($validalt->fails())
+      if($validalt->fails()){
+       // { return response()->json($validalt->errors(),403,["Content-Type"=>"applocation/json"]); }
+        return response()->json($validalt->errors(),403,["Content-Type"=>"applocation/json"]); }
+        try{
+          // return response($validalt->getData()['jelszo'],301);
+         //   felhasznalomodel::create(["email"=>$validalt->safe(["email"]),'keresztnev'=>$validalt['keresztnev'],'vezeteknev'=>$validalt['vezeteknev'],'jelszoh'=>bcrypt(base64_decode( $validalt['jelszoh'],true) ),'jog'=>2,'omazonosito'=>$validalt['omazonosito']]);
+         if($felhasznalo->jog<$validalt->getData()["jog"]){return response("nincs ehhez joga",403);}
+         felhasznalomodel::create(["email"=>$validalt->getData()["email"],'keresztnev'=>$validalt->getData()['keresztnev'],'vezeteknev'=>$validalt->getData()['vezeteknev'],'jelszoh'=>bcrypt(base64_decode( $validalt->getData()['jelszo'],true) ),'jog'=>$validalt->getData()['jog'],'omazonosito'=>$validalt->getData()['omazonosito']]);
        return response('regisztralva',201);
             }
     catch (Exception $e) { return response($e->getMessage(),500); }

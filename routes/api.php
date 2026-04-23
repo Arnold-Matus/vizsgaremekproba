@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\orarendkontroler;
+use App\Http\Controllers\zenekontroler;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\felhasznalomodel;
@@ -14,6 +15,7 @@ Route::get('/teszttt', function () {return response("oke",204);});
 Route::get('/felhasznalotokenbol/{token}', function (Request $r) {return response()->json(felhasznalomodel::where('token', $r->header("toke"))->first(),200,['Content-Type'=>'application/json']);});
 Route::get('/ido', function () {return response(Carbon\Carbon::now() ,200);});
 Route::post('/regisztracio',[felhasznalokontroller::class,'regisztracio']);
+Route::post('/nemnormalfelhasznaloregisztracio',[felhasznalokontroller::class,'regisztraciobarmilyenjogut']);
 Route::post('/bejelentkezes',[felhasznalokontroller::class,'bejelentkezes']);
 Route::get('/lejatszandozene',[orarendkontroler::class,'jelenlegizene']);
 Route::get('/kilepes',[felhasznalokontroller::class,'kilepes']);
@@ -21,6 +23,9 @@ Route::get('/kileptetesemailalapjan/{email}',[felhasznalokontroller::class,'kile
 Route::delete('/felhasznalotorlese/{email}',[felhasznalokontroller::class,'felhasznalotorlesemailalapjan']);
 Route::delete('/felhasznalotorlese',[felhasznalokontroller::class,'jelenlegifelhasznalotorlese']);
 Route::get('/aktivfelhasznaloszam',[felhasznalokontroller::class,'aktivfelhasznaloszam']);
+Route::get('/osszeszene',[zenekontroler::class,'lekerossszeszene']);
+Route::delete('/zenetorlesidalapjan/{id}',[zenekontroler::class,'zenetorlesidalapjan']);
+
 /* Source - https://stackoverflow.com/a/77859972
 // Posted by Rashid
 // Retrieved 2026-04-19, License - CC BY-SA 4.0
