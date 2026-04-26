@@ -309,6 +309,7 @@ DB::unprepared(' CREATE TRIGGER IF NOT EXISTS zenebekeresfeltoltesorarendbe AFTE
     //    select TIMESTAMPADD(SECOND,(select hossz from zene where id like NEW.zeneid), (SELECT meddig from orarend ORDER BY mikortol  DESC LIMIT 1)));END IF;');
       DB::unprepared('CREATE VIEW IF NOT EXISTS aktivfelhasznalok as SELECT count(id) from felhasznalo where token is not null');
     DB::unprepared('CREATE VIEW IF NOT EXISTS Lejatszhatozenek as select * from zene where zene.zeneurl is not null');
+    DB::unprepared('SET SESSION time_zone ="+2:00"');
     }
     /**
      * Reverse the migrations.

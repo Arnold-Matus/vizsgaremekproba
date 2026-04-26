@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\zenemodel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use const Dom\VALIDATION_ERR;
 
 class zenekontroler extends Controller
 {
@@ -43,6 +45,67 @@ if(!$zene) {
 $zene->delete();
 return response("zene sikeresen torolve",200);
 
+}
+public function zeneutvonalfrissitesidalapjan(Request $r, $id){
+    $token = $r->header("token");
+    if(!$token){   return response()->json("nincs token megadva",404,["Content-Type"=> "application/json"]);}
+    $felhasznalo= app(felhasznalokontroller::class)->tokenheztartozofelhasznalo($token);//app('App\Http\Controllers\felhasznalokontroller')->tokenheztartozofelhasznalo($token);
+if(!$felhasznalo){ return response()->json("rossz token",404,["Content-Type"=> "application/json"]);}
+if($felhasznalo->jog< 4){ return response()->json("nincs joga hozza",403,["Content-Type"=>"application/json"]);}
+$zene = zenemodel::find($id);
+if(!$zene) { return response()->json("nincs ilyen zene",404,["Content-Type"=>"application/json"]); }
+if(!$r->has("zeneurl")){return response()->json("nics zeneurl megadva",404,["Content-Type"=> "application/json"]);}
+$zene->update(["zeneurl"=>$r->zeneurl]);
+return response()->json("",204,["Content-Type"=> "application/json"]);
+}
+public function zeneutvonalfrissitesurlalpjan(Request $r, $url){
+    $token = $r->header("token");
+    if(!$token){   return response()->json("nincs token megadva",404,["Content-Type"=> "application/json"]);}
+    $felhasznalo= app(felhasznalokontroller::class)->tokenheztartozofelhasznalo($token);//app('App\Http\Controllers\felhasznalokontroller')->tokenheztartozofelhasznalo($token);
+if(!$felhasznalo){ return response()->json("rossz token",404,["Content-Type"=> "application/json"]);}
+if($felhasznalo->jog< 4){ return response()->json("nincs joga hozza",403,["Content-Type"=>"application/json"]);}
+$zene = zenemodel::where("keresurl",$url)->first();
+if(!$zene) { return response()->json("nincs ilyen zene",404,["Content-Type"=>"application/json"]); }
+if(!$r->has("zeneurl")){return response()->json("nics zeneurl megadva",404,["Content-Type"=> "application/json"]);}
+$zene->update(["zeneurl"=>$r->zeneurl]);
+return response()->json("",204,["Content-Type"=> "application/json"]);
+}
+public function zenefrissites(Request $r){
+    $token = $r->header("token");
+    if(!$token){   return response()->json("nincs token megadva",404,["Content-Type"=> "application/json"]);}
+    $felhasznalo= app(felhasznalokontroller::class)->tokenheztartozofelhasznalo($token);//app('App\Http\Controllers\felhasznalokontroller')->tokenheztartozofelhasznalo($token);
+if(!$felhasznalo){ return response()->json("rossz token",404,["Content-Type"=> "application/json"]);}
+if($felhasznalo->jog< 4){ return response()->json("nincs joga hozza",403,["Content-Type"=>"application/json"]);}
+$validalt= Validator::make($r->all(),[['keresurl'=>['required_without_all:id|regex:/(^(([http])|(https)){1}[:]{1}.*$)|^$/']],'id'=>'required_without_all:keresurl|numeric|min:1',['zeneurl'=>['sometimes|regex:@(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|^$@']], 'eloado'=>'sometimes','cim'=>'sometimes',[['lejatszhatoe'=>'sometimes|regex:/(^(([true])|(false)){1}$)|([0-1]{1})/']],'hossz'=>'sometimes|numeric','tema'=>'sometimes']);
+if($validalt->fails()){return response()->json("rossz adatok megadva",403,["Content-Type"=>"application/json"]);}
+//$zene;
+if($r->has('id')){ $zene=zenemodel::find($r->input('id'));}
+else{$zene=$zene = zenemodel::where("keresurl",$r->input('keresurl'))->first();}
+
+if(!$zene) { return response()->json("nincs ilyen zene",404,["Content-Type"=>"application/json"]); }
+//if(!$r->has("zeneurl")){return response()->json("nics zeneurl megadva",404,["Content-Type"=> "application/json"]);}
+
+//$zene->fill($r->only(['zeneurl','cim','hossz','eloado','cim','lejatszhatoe','tema']));//ha nincs megadva akkor lehet hogy ez nem a legjobb
+//$zene->update();
+$zene->update($r->only(['zeneurl','cim','hossz','eloado','cim','lejatszhatoe','tema']));
+//$zene->update(["zeneurl"=>$r->zeneurl]);
+return response()->json("",204,["Content-Type"=> "application/json"]);
+}
+public function zenetorles(Request $request){
+    $token = $request->header( "token");
+    if(empty($token)){ return response("nincs token megadva",404);}
+     $felhasznalo= app(felhasznalokontroller::class)->tokenheztartozofelhasznalo($token);
+if(!$felhasznalo){ return response("rossz token",404); }
+if($felhasznalo->jog<4){ return response("nincs joga hozza",403); }
+//$validalt=$request->validate([]);
+$validalt = Validator::make($request->all(), ['id'=>'required_without_all:keresurl,zeneurl|numeric|min:1',['keresurl'=>['required_without_all:id,zeneurl|regex:@(^(([http])|(https)){1}[:]{1}[//]{1}.+$)|(^$)@']],['zeneurl'=>['required_without_all:keresurl,id|regex:@(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|^$@']]]);
+if($validalt->fails()){return response("rossz adatok megadva",403);}
+if($request->has("id")){ $zene=zenemodel::find( $request->input('id'));}
+else if($request->has('zeneurl')){$zene=zenemodel::where('zeneurl',$request->input('zeneurl'));}
+else{ $zene=zenemodel::where('keresurl',$request->input('keresurl'));}
+if(empty($zene)){ return response('rossz adatok megadva',403); }
+$zene->delete();
+return response('',204);
 }
     //if($token && $felhasznalo->jog>3){
     

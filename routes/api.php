@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\kereskontroller;
 use App\Http\Controllers\orarendkontroler;
 use App\Http\Controllers\zenekontroler;
 use Illuminate\Http\Request;
@@ -25,9 +26,17 @@ Route::delete('/felhasznalotorlese',[felhasznalokontroller::class,'jelenlegifelh
 Route::get('/aktivfelhasznaloszam',[felhasznalokontroller::class,'aktivfelhasznaloszam']);
 Route::get('/osszeszene',[zenekontroler::class,'lekerossszeszene']);
 Route::delete('/zenetorlesidalapjan/{id}',[zenekontroler::class,'zenetorlesidalapjan']);
-
+Route::put('/zenefrissites',[zenekontroler::class,'zenefrissites']);
+Route::put('/zeneutvonalfrissitesurlalpjan/{url}',[zenekontroler::class,'zeneutvonalfrissitesurlalpjan']);
+Route::put('/zeneutvonalfrissitesidalapjan/{id}',[zenekontroler::class,'zeneutvonalfrissitesidalapjan']);
+Route::delete('/zenetorles',[zenekontroler::class,'zenetorles']);
+Route::delete('/lejatszastorles',[orarendkontroler::class,'lejatszastorles']);
+Route::get('/mainapiorarend',[orarendkontroler::class,'mainapiorarend']);
+Route::get('/teljesorarend',[orarendkontroler::class,'teljesorarend']);
+Route::get('/kovetkezolejatszas',[orarendkontroler::class,'kovetkezolejatszas']);
+Route::post('/zenevalidacio',[kereskontroller::class,'zenevalidacio']);
 /* Source - https://stackoverflow.com/a/77859972
-// Posted by Rashid
+// Posted by Rashid 
 // Retrieved 2026-04-19, License - CC BY-SA 4.0
 
 // Define routes with the specific prefix

@@ -86,7 +86,7 @@ public function tokenheztartozofelhasznalo($token){
           felhasznalomodel::create(["email"=>$validalt->getData()["email"],'keresztnev'=>$validalt->getData()['keresztnev'],'vezeteknev'=>$validalt->getData()['vezeteknev'],'jelszoh'=>bcrypt(base64_decode( $validalt->getData()['jelszo'],true) ),'jog'=>2,'omazonosito'=>$validalt->getData()['omazonosito']]);
        return response('regisztralva',201);
             }
-    catch (Exception $e) { return response($e->getMessage(),500); }
+    catch (\Exception $e) { return response($e->getMessage(),500); }
       }
       public function regisztraciobarmilyenjogut(Request $request){
 
@@ -126,7 +126,7 @@ public function tokenheztartozofelhasznalo($token){
          felhasznalomodel::create(["email"=>$validalt->getData()["email"],'keresztnev'=>$validalt->getData()['keresztnev'],'vezeteknev'=>$validalt->getData()['vezeteknev'],'jelszoh'=>bcrypt(base64_decode( $validalt->getData()['jelszo'],true) ),'jog'=>$validalt->getData()['jog'],'omazonosito'=>$validalt->getData()['omazonosito']]);
        return response('regisztralva',201);
             }
-    catch (Exception $e) { return response($e->getMessage(),500); }
+    catch (\Exception $e) { return response($e->getMessage(),500); }
       }
 public function felhasznalotorlesemailalapjan(Request $request,$email){
 $token=$request->header('token');
