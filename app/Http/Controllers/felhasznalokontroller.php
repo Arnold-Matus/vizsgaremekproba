@@ -35,7 +35,14 @@ class felhasznalokontroller extends Controller
     return $felhasznalomodel;
         }
 public function tokenheztartozofelhasznalo($token){
-    return felhasznalomodel::where("token",$token)->first();
+    $felhasznalo=felhasznalomodel::where("token",$token)->first();
+    if($felhasznalo && !empty($felhasznalo)){
+       if($felhasznalo->tokenvaliditasanakvege<now()){
+        $felhasznalo->update(['tokenvaliditasanakvege'=>null,'token'=>null]);
+        return false;
+       }
+    }
+    return $felhasznalo;//felhasznalomodel::where("token",$token)->first();
 
 }
     public function bejelentkezes(Request $request){
