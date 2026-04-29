@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\zenemodel;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use const Dom\VALIDATION_ERR;
@@ -105,6 +106,29 @@ else if($request->has('zeneurl')){$zene=zenemodel::where('zeneurl',$request->inp
 else{ $zene=zenemodel::where('keresurl',$request->input('keresurl'));}
 if(empty($zene)){ return response('rossz adatok megadva',403); }
 $zene->delete();
+return response('',204);
+}
+public function feltoltendok(Request $request){
+    return response()->json((DB::select('select * from feltoltendok')),200,["Content-Type"=>"application/json"]);
+}
+public function lejatszhatozenek(Request $request){
+    return response()->json(DB::select("select * from lejatszhatozenek"),200,["Content-Type"=>"application/json"]);
+}
+public function zenefeltoltes(Request $request){
+  $token = $request->header( "token");
+    if(empty($token)){ return response("nincs token megadva",404);}
+     $felhasznalo= app(felhasznalokontroller::class)->tokenheztartozofelhasznalo($token);
+if(!$felhasznalo){ return response("rossz token",404); }
+if($felhasznalo->jog<4){ return response("nincs joga hozza",403); }
+//$validalt=$request->validate([]);
+$validalt = Validator::make($request->all(), [['keresurl'=>['required|regex:@(^(([http])|(https)){1}[:]{1}[//]{1}.+$)|(^$)@']],['zeneurl'=>['required|regex:@(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|^$@']],'cim'=>'sometimes|nullable','eloado'=>'sometimes|nullable','lejatszatoe'=>'sometimes|nullable|numeric|min:0|max:1','hossz'=>'sometimes|nullable|numeric|min:1','tema'=>'sometimes|nullable']);
+if($validalt->fails()){return response("rossz adatok megadva",403);}
+//if($request->has("id")){ $zene=zenemodel::find( $request->input('id'));}
+//else if($request->has('zeneurl')){$zene=zenemodel::where('zeneurl',$request->input('zeneurl'));}
+//else{ $zene=zenemodel::where('keresurl',$request->input('keresurl'));}
+//if(empty($zene)){ return response('rossz adatok megadva',403); }
+//$zene->delete();
+zenemodel::create($request->only(['zeneurl','eloado','cim','lejatszhatoe','hossz','tema','keresurl']));
 return response('',204);
 }
     //if($token && $felhasznalo->jog>3){

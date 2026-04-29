@@ -74,6 +74,17 @@ return response()->json($teljes,200,['Content-Type'=>'application/json']);
 $kovetkezo=orarendmodel::where('mikortol','>',now())->orderBy('mikortol')->first();//->orderByDesc('mikortol')->first();
 return response()->json($kovetkezo,200,['Content-Type'=> 'application/json']);
     }
+    public function lejatszasmanualishozzaadasa(Request $r){
+        $token= $r->header("token");
+        if(!$token|empty($token)){return response("nincs token megadva",404);}
+    $felhasznalo= app(felhasznalokontroller::class)->tokenheztartozofelhasznalo($token);
+if(!$felhasznalo){ return response("rossz token",404); }
+if($felhasznalo->jog<4){ return response("nincs joga hozza",403); }
+$validalt= Validator::make($r->all(), ['zeneid'=>'required|numeric|min:1',['mikortol'=>['required|date']],'meddig'=>'required|date']);
+if($validalt->fails()){return response("rossz adatok megadva",403);}
+    orarendmodel::create($r->only(['zeneid','mikortol','meddig']));    
+return response('',204);
+}
     /**
      * Store a newly created resource in storage.
      */

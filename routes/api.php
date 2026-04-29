@@ -35,6 +35,10 @@ Route::get('/mainapiorarend',[orarendkontroler::class,'mainapiorarend']);
 Route::get('/teljesorarend',[orarendkontroler::class,'teljesorarend']);
 Route::get('/kovetkezolejatszas',[orarendkontroler::class,'kovetkezolejatszas']);
 Route::post('/zenevalidacio',[kereskontroller::class,'zenevalidacio']);
+Route::get('/varolista',[zenekontroler::class,'feltoltendok']);
+Route::get('/lejatszhatozenek',[zenekontroler::class,'lejatszhatozenek']);
+Route::post('/orarendmanualishozzaadas',[orarendkontroler::class,'lejatszasmanualishozzaadasa']);
+Route::post('/zenefeltoltes',[zenekontroler::class,'zenefeltoltes']);
 /* Source - https://stackoverflow.com/a/77859972
 // Posted by Rashid 
 // Retrieved 2026-04-19, License - CC BY-SA 4.0
