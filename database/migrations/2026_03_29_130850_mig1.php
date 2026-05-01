@@ -145,9 +145,15 @@ $table->timestamp('meddig')->default(now());
     }*/
          public function up(): void
     {
+        //$table->charset = 'utf8mb4';
+    //$table->collation = 'utf8mb4_bin';
         //
           if (!Schema::hasTable("jogok")) {
+           
           Schema::create("jogok", function (Blueprint $table) {
+            // $table->charset = 'utf8_hungarian_ci';
+  //  $table->collation = ' utf8_hungarian_ci';
+           
   $table->engine= "InnoDB";
   $table->unsignedTinyInteger("szint")->primary()->index();
   $table->text("jog")->unique();
@@ -159,6 +165,8 @@ $table->timestamp('meddig')->default(now());
 
  Schema::create('esemeny', function (Blueprint $table) {
 // pl felhasznalo inserted vagy zene updated
+//$table->charset = 'utf8_hungarian_ci';
+  //  $table->collation = ' utf8_hungarian_ci';
               $table->engine='InnoDB';
             //  $table->unsignedBigInteger('esemenyid')->primary()->autoIncrement();
           $table->id();
@@ -177,6 +185,8 @@ $table->timestamp('meddig')->default(now());
         }
           if (!Schema::hasTable('szunetek')) {
           Schema::create('szunetek', function (Blueprint $table) {
+           // $table->charset = 'utf8_hungarian_ci';
+   // $table->collation = ' utf8_hungarian_ci';
         $table->engine='InnoDB';
         $table->integer("hanyadik")->primary()->index();
         $table->timestamp("kezdes")->useCurrent();
@@ -187,7 +197,8 @@ $table->timestamp('meddig')->default(now());
         }
         if (!Schema::hasTable('felhasznalo')) {
             Schema::create('felhasznalo', function (Blueprint $table) {
-            
+         //   $table->charset = 'utf8_hungarian_ci';
+   // $table->collation = ' utf8_hungarian_ci';
              $table->engine='InnoDB';
           //  $table->unsignedBigInteger('felhasznaloid')->primary()->autoIncrement();
           $table->id(); 
@@ -213,7 +224,8 @@ $table->timestamp('meddig')->default(now());
         }
         if (!Schema::hasTable('keres')) {
              Schema::create('keres', function (Blueprint $table) {
-
+//$table->charset = 'utf8_hungarian_ci';
+   // $table->collation = ' utf8_hungarian_ci';
               $table->engine='InnoDB';
                 //zene bekeresnel ide kerul adat is ....
            // $table->unsignedBigInteger('keresid')->primary()->autoIncrement();
@@ -234,7 +246,8 @@ $table->timestamp('meddig')->default(now());
         if (!Schema::hasTable('zene')) {
         Schema::create('zene', function (Blueprint $table) {
 
-
+//$table->charset = 'utf8_hungarian_ci';
+  //  $table->collation = ' utf8_hungarian_ci';
     $table->engine='InnoDB';
     
        // $table->bigIncrements('id');
@@ -261,6 +274,8 @@ $table->timestamp('meddig')->default(now());
           
         if (!Schema::hasTable('orarend')) {
     Schema::create('orarend', function (Blueprint $table) {
+     // $table->charset = 'utf8_hungarian_ci';
+  //  $table->collation = ' utf8_hungarian_ci';
     $table->engine= 'InnoDB';
    // $table->unsignedBigInteger('esemenyid')->primary()->autoIncrement();
    $table->id();      

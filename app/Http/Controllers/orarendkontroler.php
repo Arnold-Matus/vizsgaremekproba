@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\orarendmodel;
+use App\Models\zenemodel;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -15,6 +16,12 @@ class orarendkontroler extends Controller
     public function index()
     {
         //
+    }public function jelenlegizeneminden(Request $r){
+    //nincs validacio, token publikus
+    $talanmostani=orarendmodel::where("meddig",">=",Carbon::now())->orderBy("mikor")->limit(1)->first();
+
+    if(empty($talanmostani)){return response("nincs",404);}
+    if($talanmostani->mikor>=Carbon::now()){return response(zenemodel::where('keresurl',$talanmostani->zeneurl)->first(),"200");}
     }
     public function jelenlegizene(Request $r){
     //nincs validacio, token publikus
@@ -23,7 +30,7 @@ class orarendkontroler extends Controller
     if(empty($talanmostani)){return response("nincs",404);}
     if($talanmostani->mikor>=Carbon::now()){return response($talanmostani->zeneurl,"200");}
     }
-    public function lejatszastorles(Request $request){
+    public function  lejatszastorles(Request $request){
 
  $token = $request->header( "token");
     if(empty($token)){ return response("nincs token megadva",404);}

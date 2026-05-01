@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\zenemodel;
 use DB;
+//use Illuminate\Support\Facades\Facade\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use const Dom\VALIDATION_ERR;
@@ -121,8 +122,9 @@ public function zenefeltoltes(Request $request){
 if(!$felhasznalo){ return response("rossz token",404); }
 if($felhasznalo->jog<4){ return response("nincs joga hozza",403); }
 //$validalt=$request->validate([]);
-$validalt = Validator::make($request->all(), [['keresurl'=>['required|regex:@(^(([http])|(https)){1}[:]{1}[//]{1}.+$)|(^$)@']],['zeneurl'=>['required|regex:@(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|^$@']],'cim'=>'sometimes|nullable','eloado'=>'sometimes|nullable','lejatszatoe'=>'sometimes|nullable|numeric|min:0|max:1','hossz'=>'sometimes|nullable|numeric|min:1','tema'=>'sometimes|nullable']);
+$validalt = Validator::make($request->all(), [['keresurl'=>['sometimes|regex:@(^(([http])|(https)){1}[:]{1}[//]{1}.+$)|(^$)@']],['zeneurl'=>['required|regex:@(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|^$@']],'cim'=>'sometimes|nullable','eloado'=>'sometimes|nullable','lejatszatoe'=>'sometimes|nullable|numeric|min:0|max:1','hossz'=>'sometimes|nullable|numeric|min:1','tema'=>'sometimes|nullable']);
 if($validalt->fails()){return response("rossz adatok megadva",403);}
+//}}}}}
 //if($request->has("id")){ $zene=zenemodel::find( $request->input('id'));}
 //else if($request->has('zeneurl')){$zene=zenemodel::where('zeneurl',$request->input('zeneurl'));}
 //else{ $zene=zenemodel::where('keresurl',$request->input('keresurl'));}

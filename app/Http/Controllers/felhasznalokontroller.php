@@ -51,9 +51,9 @@ public function tokenheztartozofelhasznalo($token){
        // else{ return response("",0); }
        $felhasznalo = felhasznalomodel::where("token",$token)->first();
        if()*/ //bejelnetkezesnel nincs meg token
-       $email= base64_decode( $request->email,true);
-       $jelszo=base64_decode($request->jelszo,true);
-       if(!$request->has("email")|| ! $request->has("jelszo")){ return response("nincs minden adat megadva",401); }
+      if(!$request->has("email")|| ! $request->has("jelszo")){ return response("nincs minden adat megadva",401); }
+        $email= $request->input('email'); // base64_decode( $request->email,true);
+       $jelszo=base64_decode($request->input(' jelszo'),true);
        $felhasznalo = felhasznalomodel::where("email",$email)->first();
        if($felhasznalo==null){ return response("nincs ilyen felhasznalo",401); }
        if($felhasznalo->jelszoh==bcrypt(base64_decode(  $jelszo,true)) ){ return response("rossz jelszo",401); }
@@ -183,7 +183,7 @@ return response('ont sikeresen toroluk',200);
 }
 public function aktivfelhasznaloszam(Request $request){
    //return $this->jadwal($request);
-   return  response(  DB::select('SELECT * from aktivfelhasznalok'),200);
+   return  response( ( DB::select('SELECT * from aktivfelhasznalok')),200);
 
 }
     /**
