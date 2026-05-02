@@ -40,6 +40,9 @@ Route::get('/varolista',[zenekontroler::class,'feltoltendok']);
 Route::get('/lejatszhatozenek',[zenekontroler::class,'lejatszhatozenek']);
 Route::post('/orarendmanualishozzaadas',[orarendkontroler::class,'lejatszasmanualishozzaadasa']);
 Route::post('/zenefeltoltes',[zenekontroler::class,'zenefeltoltes']);
+
+Route::get('/ezenanaponlevoorarend/{mikkorr}', [orarendkontroler::class,'xnapiorarend']);
+
 /* Source - https://stackoverflow.com/a/77859972
 // Posted by Rashid 
 // Retrieved 2026-04-19, License - CC BY-SA 4.0

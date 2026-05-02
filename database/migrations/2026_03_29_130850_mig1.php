@@ -310,7 +310,8 @@ $table->timestamp('meddig')->default(now());
         }
 
         //orarenddel mi legyen??
-     Db::unprepared('CREATE VIEW IF NOT EXISTS feltoltendok as select id,zeneurl from zene where zeneurl LIKE "http%"');
+     Db::unprepared('CREATE VIEW IF NOT EXISTS feltoltendok as select id,zeneurl from zene where zeneurl Is NULL');
+   //  db::unprepared(' CREATE TRIGGER IF NOT EXISTS kereszenebefeltoltes  AFTER INSERT on keres FOR EACH ROW  BEGIN  INSERT INTO zene (keresurl) VALUES (NEW.zeneurl); END;');
      
 //        DB::unprepared(' CREATE TRIGGER IF NOT EXISTS zenebekeresfeltoltesorarendbe AFTER INSERT on keres FOR EACH ROW    IF ( (NEW.validalte=1 | NEW.validalte=TRUE) && ((SELECT lejatszhatoe from zene where id like NEW.zeneid LIMIT 1 ) IN (TRUE,1))) THEN INSERT INTO orarend (zeneid,mikortol,meddig) VALUES (NEW.zeneid,select meddig from orarend ORDER BY mikortol DESC LIMIT 1,
  //       select TIMESTAMPADD(SECOND,select hossz from zene where id like NEW.zeneid, SELECT meddig from orarend ORDER BY mikortol  DESC LIMIT 1));END IF;');//ADDTIME((SELECT mikortol from orarend ORDER BY mikortol  DESC LIMIT 1),(select hossz from zene where id LIKE (SELECT zeneid from orarend ORDER BY mikortol  DESC LIMIT 1)))

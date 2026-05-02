@@ -6,7 +6,9 @@ use App\Models\orarendmodel;
 use App\Models\zenemodel;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use function Laravel\Prompts\select;
 
 class orarendkontroler extends Controller
 {
@@ -92,6 +94,20 @@ if($validalt->fails()){return response("rossz adatok megadva",403);}
     orarendmodel::create($r->only(['zeneid','mikortol','meddig']));    
 return response('',204);
 }
+public function xnapiorarend(Request $request,$mikkorr){
+
+//$token = $request->header( "token");
+  //  if(empty($token)){ return response()->json("nincs token megadva",404);}
+ //    $felhasznalo= app(felhasznalokontroller::class)->tokenheztartozofelhasznalo($token);
+//if(!$felhasznalo){ return response()->json("rossz token",404); }
+//if($felhasznalo->jog<4){ return response("nincs joga hozza",403); }
+//$validalt=$request->validate([]);
+//$validalt = Validator::make($request->all(), ['id'=>'required_without_all:mikortol|numeric|min:1',['mikortol'=>['required_without_all:id|date']]]);
+//if($validalt->fails()){return response("rossz adatok megadva",403);}
+$mikrotoll= \DateTime::createFromFormat('Y-m-d', $mikkorr)->format('Y-m-d');
+$akkorioraren= DB::select('SELECT * FROM orarend where mikortol like '.$mikrotoll.'%'); //orarendmodel::whereDate('mik);
+return response()->json($akkorioraren,200,['Content-Type'=>'application/json']);
+    }
     /**
      * Store a newly created resource in storage.
      */
