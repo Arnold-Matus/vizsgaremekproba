@@ -15,7 +15,7 @@ class keresmodel extends Model
           //  $table->timestamps();
           $table->timestamp("mikor");
         */
-       public $table = "felhasznalo";
+       public $table = "keres";
     public $fillable = ["felhasznaloid","zeneid","validalte","mikor"];
     public $timestamps=true;
     public function felhasznalo(){

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\kereskontroller;
 use App\Http\Controllers\orarendkontroler;
+use App\Http\Controllers\szunetkontroller;
 use App\Http\Controllers\zenekontroler;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,19 @@ Route::post('/orarendmanualishozzaadas',[orarendkontroler::class,'lejatszasmanua
 Route::post('/zenefeltoltes',[zenekontroler::class,'zenefeltoltes']);
 
 Route::get('/ezenanaponlevoorarend/{mikkorr}', [orarendkontroler::class,'xnapiorarend']);
+
+Route::get('/szuneteklistaja',[szunetkontroller::class,'szuneteklistaja']);
+Route::delete('/szunettorles/{hanyadik}',[szunetkontroller::class,'szunettorles']);
+Route::post('/szunethozzaadas',[szunetkontroller::class,'szunethozzaadas']);
+Route::put('/szunetmodositas/{hanyadik}',[szunetkontroller::class,'szunetmodositas']);
+Route::post('/bekeres/{url}',[kereskontroller::class,'bekeres']);
+Route::delete('/kerestorles',[kereskontroller::class,'kerestorles']);
+Route::get('/kereseklistazasa',[kereskontroller::class,'kereseklistazasa']);
+Route::put('/bejelentkezettfelhasznalofrissit',[felhasznalokontroller::class,'bejelentkezettfelhasznalofrissit']);
+Route::get('/osszesfelhasznalokilistazasa',[felhasznalokontroller::class,'osszesfelhasznalokilistazasa']);
+Route::get('/jelenlegbejelentkezettfelhasznalok',[felhasznalokontroller::class,'jelenlegbejelentkezettfelhasznalok']);
+Route::put('/szerepkorkezeles/{email}',[felhasznalokontroller::class,'szerepkorkezeles']);
+Route::put('/felhasznaloadatokfrissit/{email}',[felhasznalokontroller::class,'felhasznaloadatokfrissit']);
 
 /* Source - https://stackoverflow.com/a/77859972
 // Posted by Rashid 

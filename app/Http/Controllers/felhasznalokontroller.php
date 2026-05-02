@@ -175,15 +175,91 @@ $token=$request->header('token');
 if(!$token){ return response('nincs token megadva',404); }
 $felhasznalo = $this->tokenheztartozofelhasznalo( $token ); 
 if(!$felhasznalo){ return response('rossz token',404); }
-if($felhasznalo->jog<4){ return response('nincs ehez joga',403); }
+//if($felhasznalo->jog<4){ return response('nincs ehez joga',403); }
 //$torlendofelhasznalo= felhasznalomodel::where('email',$email)->first();
-if(!$felhasznalo){return response('nincs ilyen felhasznalo',404);}
+//if(!$felhasznalo){return response('nincs ilyen felhasznalo',404);}
 $felhasznalo->delete();
 return response('ont sikeresen toroluk',200);
 }
 public function aktivfelhasznaloszam(Request $request){
    //return $this->jadwal($request);
    return  response( ( DB::select('SELECT * from aktivfelhasznalok')),200);
+
+}
+
+
+
+
+
+public function felhasznaloadatokfrissit(Request $request,$email){
+$token=$request->header('token');
+if(!$token){ return response('nincs token megadva',404); }
+$felhasznalo = $this->tokenheztartozofelhasznalo( $token ); 
+if(!$felhasznalo){ return response('rossz token',404); }
+//if($felhasznalo->jog<4){ return response('nincs ehez joga',403); }
+//$torlendofelhasznalo= felhasznalomodel::where('email',$email)->first();
+//if(!$felhasznalo){return response('nincs ilyen felhasznalo',404);}
+$frissitendofelhasznalo= felhasznalomodel::where('email',$email);
+if(!$frissitendofelhasznalo)  return response('nincs ilyen emaillal rendelkezo felhasznalo',404);
+//$felhasznalo->delete();
+$validacio=Validator::make( $request->all(),['jog'=>'sometimes|regex:@^[1-4]?$@','emailverifikalva'=>'sometimes|regex:@^[0-1]?$@','email'=>'sometimes|unique:felhasznalo|email',['jelszo'=>['sometimes|min:6|regex:@(^[-A-Za-z0-9+/=]|=[^=]|={3,}$)@']],'keresztnev'=>'sometimes|min:2|regex:/(^[\p{L}]+$)/','vezeteknev'=>'sometimes|min:3|regex:/(^[\p{L}]+$)/','omazonosito'=>'sometimes|min:11|max:11|regex:/(^[\d]{11}$)/']); //https://stackoverflow.com/questions/475074/regex-to-parse-or-validate-base64-data
+ if($validacio->fails()){return response('rossz adatok megadva',400);}
+ $a=$request->only(['email','jelszo','keresztnev','vezeteknev','omazonosito','jog','emailverifikalva']);
+ if($request->has('jelszo')) $a['jelszo']=bcrypt(base64_decode( $a['jelszo']));
+ try{
+ $frissitendofelhasznalo->update($a);
+ }
+ catch (\Exception $e){return response('adatbazissal kapcsolatos problema',500);}
+ return response('sikeres frissites',200);
+
+}
+public function bejelentkezettfelhasznalofrissit(Request $request){
+$token=$request->header('token');
+if(!$token){ return response('nincs token megadva',404); }
+$felhasznalo = $this->tokenheztartozofelhasznalo( $token ); 
+if(!$felhasznalo){ return response('rossz token',404); }
+if($felhasznalo->jog<4){ return response('nincs ehez joga',403); }
+//$torlendofelhasznalo= felhasznalomodel::where('email',$email)->first();
+if(!$felhasznalo){return response('nincs ilyen felhasznalo',404);}
+$frissitendofelhasznalo= $felhasznalo;
+if(!$frissitendofelhasznalo)  return response('nincs ilyen emaillal rendelkezo felhasznalo',404);
+//$felhasznalo->delete();
+$validacio=Validator::make( $request->all(),['email'=>'sometimes|unique:felhasznalo|email',['jelszo'=>['sometimes|min:6|regex:@(^[-A-Za-z0-9+/=]|=[^=]|={3,}$)@']],'keresztnev'=>'sometimes|min:2|regex:/(^[\p{L}]+$)/','vezeteknev'=>'sometimes|min:3|regex:/(^[\p{L}]+$)/','omazonosito'=>'sometimes|min:11|max:11|regex:/(^[\d]{11}$)/']); //https://stackoverflow.com/questions/475074/regex-to-parse-or-validate-base64-data
+ if($validacio->fails()){return response('rossz adatok megadva',400);}
+ try{
+ $frissitendofelhasznalo->update($request->only(['email','']));
+ }
+ catch (\Exception $e){return response('adatbazissal kapcsolatos problema',500);}
+ return response('sikeres frissites',200);
+
+}
+
+public function osszesfelhasznalokilistazasa(Request $request){
+    return response()->json(felhasznalomodel::all(),200,['Content-Type'=>'application/json']);
+}
+public function jelenlegbejelentkezettfelhasznalok( Request $request){
+    return response()->json(felhasznalomodel::whereNotNull('token')->get(),200,['Content-Type'=>'application/json']);
+}
+public function szerepkorkezeles(Request $request,$email){
+$token=$request->header('token');
+if(!$token){ return response('nincs token megadva',404); }
+$felhasznalo = $this->tokenheztartozofelhasznalo( $token ); 
+if(!$felhasznalo){ return response('rossz token',404); }
+//if($felhasznalo->jog<4){ return response('nincs ehez joga',403); }
+//$torlendofelhasznalo= felhasznalomodel::where('email',$email)->first();
+//if(!$felhasznalo){return response('nincs ilyen felhasznalo',404);}
+$frissitendofelhasznalo= felhasznalomodel::where('email',$email);
+if(!$frissitendofelhasznalo)  return response('nincs ilyen emaillal rendelkezo felhasznalo',404);
+//$felhasznalo->delete();
+$validacio=Validator::make( $request->all(),['jog'=>'required|regex:@^[0-1]{1}$@']); //https://stackoverflow.com/questions/475074/regex-to-parse-or-validate-base64-data
+ if($validacio->fails()){return response('rossz adatok megadva',400);}
+ $a=$request->only(['jog']);
+ //if($request->has('jelszo')) $a['jelszo']=bcrypt(base64_decode( $a['jelszo']));
+ try{
+ $frissitendofelhasznalo->update($a);
+ }
+ catch (\Exception $e){return response('adatbazissal kapcsolatos problema',500);}
+ return response('sikeres frissites',200);
 
 }
     /**
