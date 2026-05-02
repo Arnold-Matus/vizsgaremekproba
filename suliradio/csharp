@@ -1,0 +1,12 @@
+public partial class Form1 : Form
+{
+    private Lejatszo player;
+
+    public Form1()
+    {
+        InitializeComponent();
+        player = new Lejatszo(); // Ez az egyetlen konstruktor maradjon
+    }
+    
+    // ... többi kód ...
+}
