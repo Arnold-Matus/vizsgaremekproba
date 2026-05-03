@@ -1,0 +1,48 @@
+egy helyi hálózaton elérhető jelenleg a http://127.0.0.1:8000/api úton elérhető restful stateless apikat szolgáló backendünk van ami a tokent a http kérésnek a header részében lévő token változóból szedi ki a bejelentkezéskor megkapott tokent, erre a fajta autentikációra csak  token szükséges vagy nempublikus ként fogok a továbbiakban utalni. A POST,DELETE,PUT kérések esetén ha a api leírása kér bizonyos mezőket akkor azok a mezőket a kérés testében várja el. A jogoknál 4 szint van: 1:demo, 2:normal, 3:tanar, 4:admin. A zene tábla mezői: id	zeneurl, eloado, cim, lejatszhatoe, hossz, tema, created_at, updated_at, keresurl.
+apik:
+get /teszttt visszad egy 204-es kodot ezt a backend mukodesenek tesztelesere hasznaljuk
+get /felhasznalotokenbol/{token} visszadja a tokenhez tartozo felhasznalot json formatumban
+get /ido visszaadja a jelenlegi budapesti időt 200-as kóddal "y-m-dTh:m:s.ms" formatumban alkalmas a idozona megvaltozattasanak a sikeresseget validalni
+post /regisztracio egy emailt es egy utf8 karakterkódolású jelszónak a base64 alapú változatát várja és a felhasználó keresztnevét és vezetéknevét és ha meg van adva a omazonosítóját várja ehhez a api-hoz nem szükséges tokent megadni. Ez a api egy normális felhasználói fiók adatbázisba való feltöltésére való. ha sikeres akkor egy 201-es kóddal tér vissza. elvárt mezők:keresztnev,vezeteknev,email,jelszo, esetlegesen omazonosító.
+post /nemnormalfelhasznaloregisztracio token elvárt mezők: email,jelszo,keresztnev,vezeteknev, esetlegesen omazonosító,jog. A jelszó mezőbe egy utf-8 kódolású base64 alapú karakterláncot vár el, a joghoz egy 1-től 4-ig terjedőszámot vár el, egy olyan tokent vár el ami legalább akkora joggal bír mint a feltöltendő felhasználó. Ha sikerül a felhasználót feltöltenie a adatbázisba akkor egy 201-es http kóddal tér vissza.
+post /bejelentkezes egy felhasználó bejelnetkeztetésére szolgál, elvárt mezők: email,jelszó. a jelszó egy utf-8-as karakterkódolású karakterlánc base64-es formában.
+Sikeres bejelentkezés esetén egy 200-as kóddal tér vissza és az adott felhasználóhoz tartozó 3 óráig felhasználható tokennel. A token egy egyszerű karakterlánc.
+get /kilepes egy token szükséges, kijelentkezteti a felhasználót, a megadott token a továbbiakban használhatatlanná válik és újra bekell a felhasználónak jelentkeznie ha egy másik tokent akkar. egy 200-as kóddal tér vissza sikeres kilépés esetén.
+get /kileptetesemailalapjan/{email} nempublikus, egy emailt vár a url-ben a {email} helyén és az adott emailcímmel rendelkező felhasználót kilépteti. A megadott tokennel rendelkező felhasználónak legalább 3-as szintű joggal kell rendelkeznie. sikeres kijelentkeztetésnél egy 200-as kóddal tér vissza.
+delete /felhasznalotorlese/{email} nempublikus, egy emailt vár a url-ben a {email} helyén és az adott emailcímmel rendelkező felhasználót kitörli az adatbázisból. 
+a megadott tokenhez tartozó felhasználónak legalább 4-es (admin) joggal kell hogy rendelkezzen. sikeres törlés esetén 200-as kóddal tér vissza.
+delete /felhasznalotorlese token szükséges, a megadott tokenhez tartozó felhasználót kitörli a adatbázisból. Sikeres törlés esetén egy 200-as kóddal tér vissza.
+get /aktivfelhasznaloszam visszaadja a jelenlegi felhasznaloszamot adja vissza {"count(id)": 0} formában, 200-as kóddal.
+
+get /lejatszandozene visszaadja a jelenleg játszani kívánt zene útvonalát 200-as kóddal vagy egy nincs üzenetett 404-es kóddal.
+get /lejatszandozenemindenadat  a jelenleg játszani kívánt zene összes adatával és egy 200-as kóddal vagy egy nincs üzenetett 404-es kóddal tér vissza.
+
+get /osszeszene json formátumban visszaadja a összes zene táblának a rekordjának adatait 200-as kóddal.
+delete /zenetorlesidalapjan/{id} nempublikus, egy id-t vár a url-ben a {id} helyén és az adott azonosítóval rendelkező zenét törli. A megadott tokenhez tartozó felhasználónak legalább 4-es (admin) joggal kell rendelkeznie. 200-as kóddal tér vissza sikeres törlés esetén.
+put /zenefrissites nempublikus, legalább a keresurl vagy a id mezőt meg kell adni és az alapján meghatározott zenét frissíti. A zeneurl zene elérési útja, eloado, lejatszhatoe 0 vagy 1 értékkel rendelkező mező, hossz szám, tema mezők opcionálisan megadhatók hogy frissítve legyenek. sikeres frissítés esetén 204-es kóddal tér vissza egy üzenet nélküli jsonnal. A megadott tokenhez tartozó felhasználónak legalább 4-es (admin) joggal kell rendelkeznie.
+put /zeneutvonalfrissitesurlalpjan/{url} nempublikus, egy linket vár a url-ben a {url} helyén és az adott keresurllel rendelkező zenét frissíti. A zeneurl elvárt mezőt frissíti. sikeres frissítés esetén 204-es kóddal tér vissza egy üzenet nélküli jsonnal. A megadott tokenhez tartozó felhasználónak legalább 4-es (admin) joggal kell rendelkeznie.
+put /zeneutvonalfrissitesidalapjan/{id} nempublikus, egy egyedi azonosítót vár a id-ben a {id} helyén és az adott azonosítóval rendelkező zenét frissíti. A zeneurl elvárt mezőt frissíti. sikeres frissítés esetén 204-es kóddal tér vissza egy üzenet nélküli jsonnal. A megadott tokenhez tartozó felhasználónak legalább 4-es (admin) joggal kell rendelkeznie.
+delete /zenetorles nempublikus, legalább a keresurl,zeneurl vagy a id mezőt meg kell adni és az alapján meghatározott zenét törli.  Sikeres frissítés esetén 204-es kóddal tér vissza . A megadott tokenhez tartozó felhasználónak legalább 4-es (admin) joggal kell rendelkeznie.
+
+delete /lejatszastorles token szükséges, a id vagy a mikortol dátum (timestamp) mező alapján meghatározott lejátszást törli. Sikeres törlés esetén 204-es kóddal tér vissza. A megadott tokenhez tartozó felhasználónak legalább 4-es (admin) joggal kell rendelkeznie.
+get /mainapiorarend A adott napon jelenleg a orarendben szereplő rekordok id, zeneid, mikortol és meddig mezőivel tér vissza 200-as kóddal json formátumban helyes kérés esetén
+get /teljesorarend token szükséges, A megadott tokenhez tartozó felhasználónak legalább 2-es (normal) joggal kell rendelkeznie. A jelenleg a orarendben szereplő rekordok id, zeneid, mikortol és meddig mezőivel tér vissza 200-as kóddal json formátumban helyes kérés esetén
+get /kovetkezolejatszas A következő lejátszás id, zeneid, mikortol és meddig mezőivel tér vissza 200-as kóddal json formátumban
+get /zenevalidacio/{id} nempublikus, egy egyedi azonosítót vár a id-ben a {id} helyén és az adott azonosítóval rendelkező kérést validálja és feltölti a órarendekbe.  A megadott tokenhez tartozó felhasználónak legalább 4-es (admin) joggal kell rendelkeznie. Sikeres validálás esetén 200-as kóddal json formátummal tér vissza.
+get /varolista Visszaadja az összes még nem letöltött de már bekért kérést json formátumban 200-as kóddal.
+get /lejatszhatozenek Visszatér az összes lejátszható zenével json formátumban 200-as kóddal.
+post /orarendmanualishozzaadas nempublikus, A megadott tokenhez tartozó felhasználónak legalább 4-es (admin) joggal kell rendelkeznie. A orarend tblához hozzáad manuálisan egy rekordot a kötelezően megadott zeneid nuerikus, mikortol dátum (timestamp), meddig dátum (timestamp) mezők alapján. Sikeres feltöltés esetén 204-es kóddal tér vissza.
+
+post /zenefeltoltes token szükséges,  A megadott tokenhez tartozó felhasználónak legalább 4-es (admin) joggal kell rendelkeznie. A opcionálisan megadható keresurl, zeneurl, cim, eloado, lejtszhatoe, hossz és tema mezők alapján sikeres feltöltés esetén 204-es kóddal tér vissza.
+
+get /szuneteklistaja a szunetek tábla összes rekorjával tér vissza json formátumban 200-as kóddal.
+delete /szunettorles/{hanyadik} nempublikus, egy számot vár a url-ben a {hanyadik} helyén és az adott szunetett törli.  Sikeres törlés esetén 204-es kóddal tér vissza. A megadott tokenhez tartozó felhasználónak legalább 4-es (admin) joggal kell rendelkeznie.
+post /szunethozzaadas nempublikus, a elvárt hanyadik,kezdes és vege mezők alapján hozzáad a adatbázishoz egy új szünet rekordot. Sikeres hozzáadás esetén 204-es kóddal tér vissza.  A megadott tokenhez tartozó felhasználónak legalább 4-es (admin) joggal kell rendelkeznie.
+put /szunetmodositas/{hanyadik} token szükséges, a megadott tokenhez tartozó felhasználónak legalább 4-es (admin) joggal kell rendelkeznie. Egy számot vár a url-ben a {hanyadik} helyén és az adott szunetett frissíti.  Sikeres frissítés esetén 204-es kóddal tér vissza. A opcionálisan megdható kezdes és vege dátum (timestamp) mezők alapján frissít.
+post bekeres/{url} token szükséges,  a megadott tokenhez tartozó felhasználónak legalább 2-es (normal) joggal kell rendelkeznie. Egy linket vár a urlben a {url} helyén és a kérések táblába beszúr egy az adott tokenhez tartozó felhasználó egyedi azonosítójával, a megadott urllel és a jelenlegi budapesti dátummal feltöltött rekordott. Sikeres feltöltés esetén 204-es kóddal tér vissza
+delete /kerestorles nempublikus, …….
+
+
+
+
+
