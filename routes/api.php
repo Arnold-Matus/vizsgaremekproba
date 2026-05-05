@@ -14,6 +14,7 @@ Route::get('/user', function (Request $request) {
 //osszes zene get, oraarend get, felhasznalo ad torol modosit login logout, ...//zene modosit ha kell asztali
 //mi lenne ha nem sanctumot hasznalnank hanem csak a user model vagy controllerbe lenne egy useradatoktokenbol ami a where(token,parameter) response
 Route::get('/teszttt', function () {return response("oke",204);});
+
 Route::get('/felhasznalotokenbol/{token}', function (Request $r) {return response()->json(felhasznalomodel::where('token', $r->header("toke"))->first(),200,['Content-Type'=>'application/json']);});
 Route::get('/ido', function () {return response(Carbon\Carbon::now() ,200);});
 Route::post('/regisztracio',[felhasznalokontroller::class,'regisztracio']);
@@ -44,6 +45,7 @@ Route::post('/zenefeltoltes',[zenekontroler::class,'zenefeltoltes']);
 
 Route::get('/ezenanaponlevoorarend/{mikkorr}', [orarendkontroler::class,'xnapiorarend']);
 
+
 Route::get('/szuneteklistaja',[szunetkontroller::class,'szuneteklistaja']);
 Route::delete('/szunettorles/{hanyadik}',[szunetkontroller::class,'szunettorles']);
 Route::post('/szunethozzaadas',[szunetkontroller::class,'szunethozzaadas']);
@@ -56,6 +58,7 @@ Route::get('/osszesfelhasznalokilistazasa',[felhasznalokontroller::class,'osszes
 Route::get('/jelenlegbejelentkezettfelhasznalok',[felhasznalokontroller::class,'jelenlegbejelentkezettfelhasznalok']);
 Route::put('/szerepkorkezeles/{email}',[felhasznalokontroller::class,'szerepkorkezeles']);
 Route::put('/felhasznaloadatokfrissit/{email}',[felhasznalokontroller::class,'felhasznaloadatokfrissit']);
+
 
 /* Source - https://stackoverflow.com/a/77859972
 // Posted by Rashid 

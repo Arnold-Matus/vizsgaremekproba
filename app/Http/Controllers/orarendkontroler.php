@@ -23,14 +23,16 @@ class orarendkontroler extends Controller
     $talanmostani=orarendmodel::where("meddig",">=",Carbon::now())->orderBy("mikor")->limit(1)->first();
 
     if(empty($talanmostani)){return response("nincs",404);}
-    if($talanmostani->mikor>=Carbon::now()){return response(zenemodel::where('keresurl',$talanmostani->zeneurl)->first(),"200");}
+    if($talanmostani->mikor>=Carbon::now()){return response(zenemodel::where('keresurl',$talanmostani->zeneid)->first(),"200");}
     }
     public function jelenlegizene(Request $r){
     //nincs validacio, token publikus
-    $talanmostani=orarendmodel::where("meddig",">=",Carbon::now())->orderBy("mikor")->limit(1)->first();
+   // $talanmostani=orarendmodel::where("meddig",">=",Carbon::now())->orderBy("mikor")->limit(1)->first();
+ $talanmostani=orarendmodel::where("meddig",">",Carbon::now())->where('mikortol',"<",Carbon::now())->first();//->orderBy("mikor")->limit(1)->first();
 
     if(empty($talanmostani)){return response("nincs",404);}
-    if($talanmostani->mikor>=Carbon::now()){return response($talanmostani->zeneurl,"200");}
+   // if($talanmostani->mikor>=Carbon::now()){return response($talanmostani->zeneid,"200");}
+   return response(\App\Models\zenemodel::where('id',$talanmostani->zeneid)->first()->toArray(),"200");
     }
     public function  lejatszastorles(Request $request){
 

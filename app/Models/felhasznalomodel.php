@@ -55,6 +55,9 @@ class felhasznalomodel extends Model
    /* public function szesion(){
     return $this->hasMany(szesionmodel::class,"felhasznaloid","id");
     }*/
-  
+  public function felhasznalo(){
+    //return $this->belongsTo(felhasznalomodel::class,"felhasznaloid","id");
+   return $this->belongsToMany(jogokmodel::class,"jog","szint");
+    }
 
 }

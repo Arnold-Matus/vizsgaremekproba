@@ -89,7 +89,7 @@ if(!$zene) { return response()->json("nincs ilyen zene",404,["Content-Type"=>"ap
 
 //$zene->fill($r->only(['zeneurl','cim','hossz','eloado','cim','lejatszhatoe','tema']));//ha nincs megadva akkor lehet hogy ez nem a legjobb
 //$zene->update();
-$zene->update($r->only(['zeneurl','cim','hossz','eloado','cim','lejatszhatoe','tema']));
+$zene->update($r->only(['zeneurl','cim','hossz','eloado','lejatszhatoe','tema']));
 //$zene->update(["zeneurl"=>$r->zeneurl]);
 return response()->json("",204,["Content-Type"=> "application/json"]);
 }
@@ -133,6 +133,12 @@ if($validalt->fails()){return response("rossz adatok megadva",403);}
 zenemodel::create($request->only(['zeneurl','eloado','cim','lejatszhatoe','hossz','tema','keresurl']));
 return response('',204);
 }
+
+
+
+
+
+
     //if($token && $felhasznalo->jog>3){
     
     //}

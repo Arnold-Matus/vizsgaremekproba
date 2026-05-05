@@ -18,7 +18,7 @@ class zenemodel extends Model
             //torolve bool oszlop?
             $table->timestamps(6); */
      public $table = "zene";
-    public $fillable = ["zeneurl","cim","lejatszhatoe","hossz","tema","CREATED_AT ","UPDATED_AT"];
+    public $fillable = ["zeneurl","eloado","cim","lejatszhatoe","hossz","tema","CREATED_AT ","UPDATED_AT"];
     public $timestamps=true;
   /*  public function keres(){
     return $this->belongsTo(keresmodel::class,"zeneid","id");
