@@ -7945,162 +7945,725 @@ Stack trace:
 #42 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('C://Users//Win11P...')
 #43 {main}
 "} 
-[2026-05-02 21:06:17] local.ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'suliradio2.szunetekmodels' doesn't exist (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: suliradio2, SQL: select * from `szunetekmodels`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S02): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'suliradio2.szunetekmodels' doesn't exist (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: suliradio2, SQL: select * from `szunetekmodels`) at C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Connection.php:838)
-[stacktrace]
-#0 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Connection.php(794): Illuminate/Database/Connection->runQueryCallback('select * from `...', Array, Object(Closure))
-#1 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Connection.php(411): Illuminate/Database/Connection->run('select * from `...', Array, Object(Closure))
-#2 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3505): Illuminate/Database/Connection->select('select * from `...', Array, true)
-#3 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3490): Illuminate/Database/Query/Builder->runSelect()
-#4 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(4080): Illuminate/Database/Query/Builder->Illuminate/Database/Query/{closure}()
-#5 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3489): Illuminate/Database/Query/Builder->onceWithColumns(Array, Object(Closure))
-#6 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(902): Illuminate/Database/Query/Builder->get(Array)
-#7 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(884): Illuminate/Database/Eloquent/Builder->getModels(Array)
-#8 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(770): Illuminate/Database/Eloquent/Builder->get(Array)
-#9 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/app/Http/Controllers/szunetkontroller.php(17): Illuminate/Database/Eloquent/Model::all()
-#10 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(46): App/Http/Controllers/szunetkontroller->szuneteklistaja(Object(Illuminate/Http/Request))
-#11 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Routing/Route.php(265): Illuminate/Routing/ControllerDispatcher->dispatch(Object(Illuminate/Routing/Route), Object(App/Http/Controllers/szunetkontroller), 'szuneteklistaja')
-#12 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Routing/Route.php(211): Illuminate/Routing/Route->runController()
-#13 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate/Routing/Route->run()
-#14 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
-#15 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#16 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
-#17 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#18 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Routing/Router.php(821): Illuminate/Pipeline/Pipeline->then(Object(Closure))
-#19 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
-#20 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Routing/Router.php(764): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
-#21 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Routing/Router.php(753): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
-#22 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
-#23 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
-#24 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#25 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
-#26 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
-#27 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#28 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
-#29 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
-#30 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#31 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
-#32 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(109): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#33 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
-#34 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(74): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#35 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
-#36 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#37 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
-#38 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#39 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks->handle(Object(Illuminate/Http/Request), Object(Closure))
-#40 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePathEncoding.php(26): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#41 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePathEncoding->handle(Object(Illuminate/Http/Request), Object(Closure))
-#42 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#43 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
-#44 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
-#45 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
-#46 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/public/index.php(20): Illuminate/Foundation/Application->handleRequest(Object(Illuminate/Http/Request))
-#47 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('C://Users//Win11P...')
-#48 {main}
+[2026-05-03 08:44:40] local.ERROR: Command "make:kontroller" is not defined.
 
-[previous exception] [object] (PDOException(code: 42S02): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'suliradio2.szunetekmodels' doesn't exist at C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Connection.php:420)
+Did you mean one of these?
+    make:cache-table
+    make:cast
+    make:channel
+    make:class
+    make:command
+    make:component
+    make:config
+    make:controller
+    make:enum
+    make:event
+    make:exception
+    make:factory
+    make:interface
+    make:job
+    make:job-middleware
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:notifications-table
+    make:observer
+    make:policy
+    make:provider
+    make:queue-batches-table
+    make:queue-failed-table
+    make:queue-table
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:session-table
+    make:test
+    make:trait
+    make:view {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make:kontroller\" is not defined.
+
+Did you mean one of these?
+    make:cache-table
+    make:cast
+    make:channel
+    make:class
+    make:command
+    make:component
+    make:config
+    make:controller
+    make:enum
+    make:event
+    make:exception
+    make:factory
+    make:interface
+    make:job
+    make:job-middleware
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:notifications-table
+    make:observer
+    make:policy
+    make:provider
+    make:queue-batches-table
+    make:queue-failed-table
+    make:queue-table
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:session-table
+    make:test
+    make:trait
+    make:view at C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/symfony/console/Application.php:759)
 [stacktrace]
-#0 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Connection.php(420): PDO->prepare('select * from `...')
-#1 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Connection.php(827): Illuminate/Database/Connection->Illuminate/Database/{closure}('select * from `...', Array)
-#2 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Connection.php(794): Illuminate/Database/Connection->runQueryCallback('select * from `...', Array, Object(Closure))
-#3 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Connection.php(411): Illuminate/Database/Connection->run('select * from `...', Array, Object(Closure))
-#4 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3505): Illuminate/Database/Connection->select('select * from `...', Array, true)
-#5 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3490): Illuminate/Database/Query/Builder->runSelect()
-#6 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(4080): Illuminate/Database/Query/Builder->Illuminate/Database/Query/{closure}()
-#7 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3489): Illuminate/Database/Query/Builder->onceWithColumns(Array, Object(Closure))
-#8 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(902): Illuminate/Database/Query/Builder->get(Array)
-#9 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(884): Illuminate/Database/Eloquent/Builder->getModels(Array)
-#10 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(770): Illuminate/Database/Eloquent/Builder->get(Array)
-#11 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/app/Http/Controllers/szunetkontroller.php(17): Illuminate/Database/Eloquent/Model::all()
-#12 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(46): App/Http/Controllers/szunetkontroller->szuneteklistaja(Object(Illuminate/Http/Request))
-#13 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Routing/Route.php(265): Illuminate/Routing/ControllerDispatcher->dispatch(Object(Illuminate/Routing/Route), Object(App/Http/Controllers/szunetkontroller), 'szuneteklistaja')
-#14 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Routing/Route.php(211): Illuminate/Routing/Route->runController()
-#15 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate/Routing/Route->run()
-#16 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
-#17 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#18 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
-#19 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#20 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Routing/Router.php(821): Illuminate/Pipeline/Pipeline->then(Object(Closure))
-#21 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
-#22 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Routing/Router.php(764): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
-#23 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Routing/Router.php(753): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
-#24 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
-#25 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
-#26 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#27 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
-#28 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
-#29 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#30 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
-#31 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
-#32 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#33 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
-#34 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(109): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#35 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
-#36 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(74): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#37 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
-#38 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#39 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
-#40 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#41 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks->handle(Object(Illuminate/Http/Request), Object(Closure))
-#42 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePathEncoding.php(26): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#43 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePathEncoding->handle(Object(Illuminate/Http/Request), Object(Closure))
-#44 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
-#45 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
-#46 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
-#47 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
-#48 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/public/index.php(20): Illuminate/Foundation/Application->handleRequest(Object(Illuminate/Http/Request))
-#49 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('C://Users//Win11P...')
-#50 {main}
+#0 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/symfony/console/Application.php(298): Symfony/Component/Console/Application->find('make:kontroller')
+#1 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/symfony/console/Application.php(195): Symfony/Component/Console/Application->doRun(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#2 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony/Component/Console/Application->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#3 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate/Foundation/Console/Kernel->handle(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#4 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/artisan(16): Illuminate/Foundation/Application->handleCommand(Object(Symfony/Component/Console/Input/ArgvInput))
+#5 {main}
 "} 
-[2026-05-02 21:09:06] local.ERROR: Target class [Database\Seeders\szunetekseeder.php] does not exist. {"exception":"[object] (Illuminate\\Contracts\\Container\\BindingResolutionException(code: 0): Target class [Database\\Seeders\\szunetekseeder.php] does not exist. at C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Container/Container.php:1124)
-[stacktrace]
-#0 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Container/Container.php(933): Illuminate/Container/Container->build('Database//Seeder...')
-#1 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate/Container/Container->resolve('Database//Seeder...', Array, true)
-#2 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Container/Container.php(864): Illuminate/Foundation/Application->resolve('Database//Seeder...', Array)
-#3 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate/Container/Container->make('Database//Seeder...', Array)
-#4 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(99): Illuminate/Foundation/Application->make('Database//Seeder...')
-#5 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(71): Illuminate/Database/Console/Seeds/SeedCommand->getSeeder()
-#6 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/GuardsAttributes.php(157): Illuminate/Database/Console/Seeds/SeedCommand->Illuminate/Database/Console/Seeds/{closure}()
-#7 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(70): Illuminate/Database/Eloquent/Model::unguarded(Object(Closure))
-#8 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate/Database/Console/Seeds/SeedCommand->handle()
-#9 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate/Container/BoundMethod::Illuminate/Container/{closure}()
-#10 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(96): Illuminate/Container/Util::unwrapIfClosure(Object(Closure))
-#11 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate/Container/BoundMethod::callBoundMethod(Object(Illuminate/Foundation/Application), Array, Object(Closure))
-#12 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Container/Container.php(799): Illuminate/Container/BoundMethod::call(Object(Illuminate/Foundation/Application), Array, Array, NULL)
-#13 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate/Container/Container->call(Array)
-#14 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/symfony/console/Command/Command.php(341): Illuminate/Console/Command->execute(Object(Symfony/Component/Console/Input/ArgvInput), Object(Illuminate/Console/OutputStyle))
-#15 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony/Component/Console/Command/Command->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Illuminate/Console/OutputStyle))
-#16 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/symfony/console/Application.php(1117): Illuminate/Console/Command->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
-#17 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/symfony/console/Application.php(356): Symfony/Component/Console/Application->doRunCommand(Object(Illuminate/Database/Console/Seeds/SeedCommand), Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
-#18 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/symfony/console/Application.php(195): Symfony/Component/Console/Application->doRun(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
-#19 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony/Component/Console/Application->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
-#20 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate/Foundation/Console/Kernel->handle(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
-#21 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/artisan(16): Illuminate/Foundation/Application->handleCommand(Object(Symfony/Component/Console/Input/ArgvInput))
-#22 {main}
+[2026-05-03 08:44:52] local.ERROR: Command "make:kontroler" is not defined.
 
-[previous exception] [object] (ReflectionException(code: -1): Class \"Database\\Seeders\\szunetekseeder.php\" does not exist at C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Container/Container.php:1122)
+Did you mean one of these?
+    make:cache-table
+    make:cast
+    make:channel
+    make:class
+    make:command
+    make:component
+    make:config
+    make:controller
+    make:enum
+    make:event
+    make:exception
+    make:factory
+    make:interface
+    make:job
+    make:job-middleware
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:notifications-table
+    make:observer
+    make:policy
+    make:provider
+    make:queue-batches-table
+    make:queue-failed-table
+    make:queue-table
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:session-table
+    make:test
+    make:trait
+    make:view {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make:kontroler\" is not defined.
+
+Did you mean one of these?
+    make:cache-table
+    make:cast
+    make:channel
+    make:class
+    make:command
+    make:component
+    make:config
+    make:controller
+    make:enum
+    make:event
+    make:exception
+    make:factory
+    make:interface
+    make:job
+    make:job-middleware
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:notifications-table
+    make:observer
+    make:policy
+    make:provider
+    make:queue-batches-table
+    make:queue-failed-table
+    make:queue-table
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:session-table
+    make:test
+    make:trait
+    make:view at C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/symfony/console/Application.php:759)
 [stacktrace]
-#0 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Container/Container.php(1122): ReflectionClass->__construct('Database//Seeder...')
-#1 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Container/Container.php(933): Illuminate/Container/Container->build('Database//Seeder...')
-#2 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate/Container/Container->resolve('Database//Seeder...', Array, true)
-#3 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Container/Container.php(864): Illuminate/Foundation/Application->resolve('Database//Seeder...', Array)
-#4 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate/Container/Container->make('Database//Seeder...', Array)
-#5 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(99): Illuminate/Foundation/Application->make('Database//Seeder...')
-#6 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(71): Illuminate/Database/Console/Seeds/SeedCommand->getSeeder()
-#7 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/GuardsAttributes.php(157): Illuminate/Database/Console/Seeds/SeedCommand->Illuminate/Database/Console/Seeds/{closure}()
-#8 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(70): Illuminate/Database/Eloquent/Model::unguarded(Object(Closure))
-#9 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate/Database/Console/Seeds/SeedCommand->handle()
-#10 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate/Container/BoundMethod::Illuminate/Container/{closure}()
-#11 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(96): Illuminate/Container/Util::unwrapIfClosure(Object(Closure))
-#12 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate/Container/BoundMethod::callBoundMethod(Object(Illuminate/Foundation/Application), Array, Object(Closure))
-#13 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Container/Container.php(799): Illuminate/Container/BoundMethod::call(Object(Illuminate/Foundation/Application), Array, Array, NULL)
-#14 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate/Container/Container->call(Array)
-#15 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/symfony/console/Command/Command.php(341): Illuminate/Console/Command->execute(Object(Symfony/Component/Console/Input/ArgvInput), Object(Illuminate/Console/OutputStyle))
-#16 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony/Component/Console/Command/Command->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Illuminate/Console/OutputStyle))
-#17 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/symfony/console/Application.php(1117): Illuminate/Console/Command->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
-#18 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/symfony/console/Application.php(356): Symfony/Component/Console/Application->doRunCommand(Object(Illuminate/Database/Console/Seeds/SeedCommand), Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
-#19 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/symfony/console/Application.php(195): Symfony/Component/Console/Application->doRun(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
-#20 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony/Component/Console/Application->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
-#21 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate/Foundation/Console/Kernel->handle(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
-#22 C:/Users/Win11Prem2026Marcius/Downloads/vizsgaremekproba-Arnold-Matus-patch-13/vizsgaremekproba-Arnold-Matus-patch-13/artisan(16): Illuminate/Foundation/Application->handleCommand(Object(Symfony/Component/Console/Input/ArgvInput))
-#23 {main}
+#0 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/symfony/console/Application.php(298): Symfony/Component/Console/Application->find('make:kontroler')
+#1 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/symfony/console/Application.php(195): Symfony/Component/Console/Application->doRun(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#2 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony/Component/Console/Application->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#3 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate/Foundation/Console/Kernel->handle(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#4 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/artisan(16): Illuminate/Foundation/Application->handleCommand(Object(Symfony/Component/Console/Input/ArgvInput))
+#5 {main}
+"} 
+[2026-05-05 17:06:02] local.ERROR: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'C:/A/B.mp3' for key 'zene_zeneurl_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: suliradio, SQL: insert into `zene` (`zeneurl`, `cim`, `hossz`, `updated_at`, `created_at`) values (C:/A/B.mp3, cimm, 33, 2026-05-05 17:06:02, 2026-05-05 17:06:02)) {"exception":"[object] (Illuminate\\Database\\UniqueConstraintViolationException(code: 23000): SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'C:/A/B.mp3' for key 'zene_zeneurl_unique' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: suliradio, SQL: insert into `zene` (`zeneurl`, `cim`, `hossz`, `updated_at`, `created_at`) values (C:/A/B.mp3, cimm, 33, 2026-05-05 17:06:02, 2026-05-05 17:06:02)) at C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php:838)
+[stacktrace]
+#0 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(794): Illuminate/Database/Connection->runQueryCallback('insert into `ze...', Array, Object(Closure))
+#1 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/MySqlConnection.php(42): Illuminate/Database/Connection->run('insert into `ze...', Array, Object(Closure))
+#2 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/MySqlProcessor.php(35): Illuminate/Database/MySqlConnection->insert('insert into `ze...', Array, 'id')
+#3 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(4170): Illuminate/Database/Query/Processors/MySqlProcessor->processInsertGetId(Object(Illuminate/Database/Query/Builder), 'insert into `ze...', Array, 'id')
+#4 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(2237): Illuminate/Database/Query/Builder->insertGetId(Array, 'id')
+#5 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(1436): Illuminate/Database/Eloquent/Builder->__call('insertGetId', Array)
+#6 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(1401): Illuminate/Database/Eloquent/Model->insertAndSetId(Object(Illuminate/Database/Eloquent/Builder), Array)
+#7 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(1240): Illuminate/Database/Eloquent/Model->performInsert(Object(Illuminate/Database/Eloquent/Builder))
+#8 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(1219): Illuminate/Database/Eloquent/Model->save()
+#9 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Support/helpers.php(393): Illuminate/Database/Eloquent/Builder->Illuminate/Database/Eloquent/{closure}(Object(App/Models/zenemodel))
+#10 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(1218): tap(Object(App/Models/zenemodel), Object(Closure))
+#11 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php(23): Illuminate/Database/Eloquent/Builder->create(Array)
+#12 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2540): Illuminate/Database/Eloquent/Model->forwardCallTo(Object(Illuminate/Database/Eloquent/Builder), 'create', Array)
+#13 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2556): Illuminate/Database/Eloquent/Model->__call('create', Array)
+#14 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/app/Http/Controllers/zenekontroler.php(133): Illuminate/Database/Eloquent/Model::__callStatic('create', Array)
+#15 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(46): App/Http/Controllers/zenekontroler->zenefeltoltes(Object(Illuminate/Http/Request))
+#16 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(265): Illuminate/Routing/ControllerDispatcher->dispatch(Object(Illuminate/Routing/Route), Object(App/Http/Controllers/zenekontroler), 'zenefeltoltes')
+#17 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(211): Illuminate/Routing/Route->runController()
+#18 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate/Routing/Route->run()
+#19 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
+#20 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#21 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#22 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#23 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(821): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#24 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#25 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(764): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#26 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(753): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#27 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#28 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#29 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#30 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#31 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#32 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#33 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#34 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#35 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#36 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#37 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(109): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#38 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#39 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(74): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#40 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#41 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#42 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#43 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#44 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks->handle(Object(Illuminate/Http/Request), Object(Closure))
+#45 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePathEncoding.php(26): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#46 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePathEncoding->handle(Object(Illuminate/Http/Request), Object(Closure))
+#47 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#48 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#49 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#50 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#51 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/public/index.php(20): Illuminate/Foundation/Application->handleRequest(Object(Illuminate/Http/Request))
+#52 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('C://Users//Win11P...')
+#53 {main}
+
+[previous exception] [object] (PDOException(code: 23000): SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'C:/A/B.mp3' for key 'zene_zeneurl_unique' at C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/MySqlConnection.php:53)
+[stacktrace]
+#0 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/MySqlConnection.php(53): PDOStatement->execute()
+#1 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(827): Illuminate/Database/MySqlConnection->Illuminate/Database/{closure}('insert into `ze...', Array)
+#2 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(794): Illuminate/Database/Connection->runQueryCallback('insert into `ze...', Array, Object(Closure))
+#3 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/MySqlConnection.php(42): Illuminate/Database/Connection->run('insert into `ze...', Array, Object(Closure))
+#4 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/MySqlProcessor.php(35): Illuminate/Database/MySqlConnection->insert('insert into `ze...', Array, 'id')
+#5 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(4170): Illuminate/Database/Query/Processors/MySqlProcessor->processInsertGetId(Object(Illuminate/Database/Query/Builder), 'insert into `ze...', Array, 'id')
+#6 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(2237): Illuminate/Database/Query/Builder->insertGetId(Array, 'id')
+#7 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(1436): Illuminate/Database/Eloquent/Builder->__call('insertGetId', Array)
+#8 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(1401): Illuminate/Database/Eloquent/Model->insertAndSetId(Object(Illuminate/Database/Eloquent/Builder), Array)
+#9 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(1240): Illuminate/Database/Eloquent/Model->performInsert(Object(Illuminate/Database/Eloquent/Builder))
+#10 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(1219): Illuminate/Database/Eloquent/Model->save()
+#11 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Support/helpers.php(393): Illuminate/Database/Eloquent/Builder->Illuminate/Database/Eloquent/{closure}(Object(App/Models/zenemodel))
+#12 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(1218): tap(Object(App/Models/zenemodel), Object(Closure))
+#13 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php(23): Illuminate/Database/Eloquent/Builder->create(Array)
+#14 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2540): Illuminate/Database/Eloquent/Model->forwardCallTo(Object(Illuminate/Database/Eloquent/Builder), 'create', Array)
+#15 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2556): Illuminate/Database/Eloquent/Model->__call('create', Array)
+#16 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/app/Http/Controllers/zenekontroler.php(133): Illuminate/Database/Eloquent/Model::__callStatic('create', Array)
+#17 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(46): App/Http/Controllers/zenekontroler->zenefeltoltes(Object(Illuminate/Http/Request))
+#18 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(265): Illuminate/Routing/ControllerDispatcher->dispatch(Object(Illuminate/Routing/Route), Object(App/Http/Controllers/zenekontroler), 'zenefeltoltes')
+#19 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(211): Illuminate/Routing/Route->runController()
+#20 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate/Routing/Route->run()
+#21 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
+#22 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#23 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#24 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#25 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(821): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#26 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#27 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(764): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#28 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(753): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#29 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#30 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#31 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#32 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#33 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#34 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#35 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#36 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#37 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#38 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#39 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(109): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#40 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#41 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(74): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#42 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#43 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#44 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#45 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#46 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks->handle(Object(Illuminate/Http/Request), Object(Closure))
+#47 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePathEncoding.php(26): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#48 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePathEncoding->handle(Object(Illuminate/Http/Request), Object(Closure))
+#49 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#50 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#51 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#52 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#53 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/public/index.php(20): Illuminate/Foundation/Application->handleRequest(Object(Illuminate/Http/Request))
+#54 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('C://Users//Win11P...')
+#55 {main}
+"} 
+[2026-05-05 17:31:09] local.ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'suliradio.zeneid' doesn't exist (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: suliradio, SQL: select `zene`.*, `zeneid`.`id` as `pivot_id`, `zeneid`.`zenemodel_id` as `pivot_zenemodel_id` from `zene` inner join `zeneid` on `zene`.`id` = `zeneid`.`zenemodel_id` where `zeneid`.`id` = 3) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S02): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'suliradio.zeneid' doesn't exist (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: suliradio, SQL: select `zene`.*, `zeneid`.`id` as `pivot_id`, `zeneid`.`zenemodel_id` as `pivot_zenemodel_id` from `zene` inner join `zeneid` on `zene`.`id` = `zeneid`.`zenemodel_id` where `zeneid`.`id` = 3) at C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php:838)
+[stacktrace]
+#0 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(794): Illuminate/Database/Connection->runQueryCallback('select `zene`.*...', Array, Object(Closure))
+#1 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(411): Illuminate/Database/Connection->run('select `zene`.*...', Array, Object(Closure))
+#2 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3505): Illuminate/Database/Connection->select('select `zene`.*...', Array, true)
+#3 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3490): Illuminate/Database/Query/Builder->runSelect()
+#4 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(4080): Illuminate/Database/Query/Builder->Illuminate/Database/Query/{closure}()
+#5 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3489): Illuminate/Database/Query/Builder->onceWithColumns(Array, Object(Closure))
+#6 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(902): Illuminate/Database/Query/Builder->get(Array)
+#7 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php(932): Illuminate/Database/Eloquent/Builder->getModels()
+#8 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php(916): Illuminate/Database/Eloquent/Relations/BelongsToMany->get()
+#9 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php(637): Illuminate/Database/Eloquent/Relations/BelongsToMany->getResults()
+#10 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php(575): Illuminate/Database/Eloquent/Model->getRelationshipFromMethod('zene')
+#11 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php(494): Illuminate/Database/Eloquent/Model->getRelationValue('zene')
+#12 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2423): Illuminate/Database/Eloquent/Model->getAttribute('zene')
+#13 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/app/Http/Controllers/orarendkontroler.php(35): Illuminate/Database/Eloquent/Model->__get('zene')
+#14 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(46): App/Http/Controllers/orarendkontroler->jelenlegizene(Object(Illuminate/Http/Request))
+#15 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(265): Illuminate/Routing/ControllerDispatcher->dispatch(Object(Illuminate/Routing/Route), Object(App/Http/Controllers/orarendkontroler), 'jelenlegizene')
+#16 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(211): Illuminate/Routing/Route->runController()
+#17 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate/Routing/Route->run()
+#18 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
+#19 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#20 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#21 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#22 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(821): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#23 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#24 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(764): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#25 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(753): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#26 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#27 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#28 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#29 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#30 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#31 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#32 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#33 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#34 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#35 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#36 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(109): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#37 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#38 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(74): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#39 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#40 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#41 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#42 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#43 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks->handle(Object(Illuminate/Http/Request), Object(Closure))
+#44 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePathEncoding.php(26): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#45 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePathEncoding->handle(Object(Illuminate/Http/Request), Object(Closure))
+#46 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#47 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#48 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#49 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#50 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/public/index.php(20): Illuminate/Foundation/Application->handleRequest(Object(Illuminate/Http/Request))
+#51 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('C://Users//Win11P...')
+#52 {main}
+
+[previous exception] [object] (PDOException(code: 42S02): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'suliradio.zeneid' doesn't exist at C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php:420)
+[stacktrace]
+#0 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(420): PDO->prepare('select `zene`.*...')
+#1 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(827): Illuminate/Database/Connection->Illuminate/Database/{closure}('select `zene`.*...', Array)
+#2 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(794): Illuminate/Database/Connection->runQueryCallback('select `zene`.*...', Array, Object(Closure))
+#3 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(411): Illuminate/Database/Connection->run('select `zene`.*...', Array, Object(Closure))
+#4 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3505): Illuminate/Database/Connection->select('select `zene`.*...', Array, true)
+#5 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3490): Illuminate/Database/Query/Builder->runSelect()
+#6 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(4080): Illuminate/Database/Query/Builder->Illuminate/Database/Query/{closure}()
+#7 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3489): Illuminate/Database/Query/Builder->onceWithColumns(Array, Object(Closure))
+#8 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(902): Illuminate/Database/Query/Builder->get(Array)
+#9 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php(932): Illuminate/Database/Eloquent/Builder->getModels()
+#10 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php(916): Illuminate/Database/Eloquent/Relations/BelongsToMany->get()
+#11 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php(637): Illuminate/Database/Eloquent/Relations/BelongsToMany->getResults()
+#12 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php(575): Illuminate/Database/Eloquent/Model->getRelationshipFromMethod('zene')
+#13 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php(494): Illuminate/Database/Eloquent/Model->getRelationValue('zene')
+#14 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2423): Illuminate/Database/Eloquent/Model->getAttribute('zene')
+#15 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/app/Http/Controllers/orarendkontroler.php(35): Illuminate/Database/Eloquent/Model->__get('zene')
+#16 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(46): App/Http/Controllers/orarendkontroler->jelenlegizene(Object(Illuminate/Http/Request))
+#17 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(265): Illuminate/Routing/ControllerDispatcher->dispatch(Object(Illuminate/Routing/Route), Object(App/Http/Controllers/orarendkontroler), 'jelenlegizene')
+#18 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(211): Illuminate/Routing/Route->runController()
+#19 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate/Routing/Route->run()
+#20 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
+#21 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#22 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#23 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#24 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(821): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#25 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#26 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(764): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#27 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(753): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#28 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#29 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#30 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#31 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#32 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#33 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#34 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#35 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#36 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#37 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#38 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(109): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#39 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#40 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(74): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#41 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#42 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#43 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#44 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#45 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks->handle(Object(Illuminate/Http/Request), Object(Closure))
+#46 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePathEncoding.php(26): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#47 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePathEncoding->handle(Object(Illuminate/Http/Request), Object(Closure))
+#48 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#49 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#50 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#51 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#52 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/public/index.php(20): Illuminate/Foundation/Application->handleRequest(Object(Illuminate/Http/Request))
+#53 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('C://Users//Win11P...')
+#54 {main}
+"} 
+[2026-05-05 17:31:54] local.ERROR: Method Illuminate\Database\Eloquent\Relations\BelongsToMany::all does not exist. {"exception":"[object] (BadMethodCallException(code: 0): Method Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany::all does not exist. at C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Macroable/Traits/Macroable.php:89)
+[stacktrace]
+#0 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/app/Http/Controllers/orarendkontroler.php(35): Illuminate/Database/Eloquent/Relations/Relation::__callStatic('all', Array)
+#1 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(46): App/Http/Controllers/orarendkontroler->jelenlegizene(Object(Illuminate/Http/Request))
+#2 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(265): Illuminate/Routing/ControllerDispatcher->dispatch(Object(Illuminate/Routing/Route), Object(App/Http/Controllers/orarendkontroler), 'jelenlegizene')
+#3 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(211): Illuminate/Routing/Route->runController()
+#4 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate/Routing/Route->run()
+#5 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
+#6 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#7 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#8 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#9 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(821): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#10 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#11 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(764): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#12 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(753): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#13 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#14 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#15 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#16 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#17 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#18 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#19 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#20 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#21 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#22 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#23 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(109): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#24 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#25 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(74): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#26 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#27 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#28 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#29 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#30 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks->handle(Object(Illuminate/Http/Request), Object(Closure))
+#31 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePathEncoding.php(26): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#32 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePathEncoding->handle(Object(Illuminate/Http/Request), Object(Closure))
+#33 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#34 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#35 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#36 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#37 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/public/index.php(20): Illuminate/Foundation/Application->handleRequest(Object(Illuminate/Http/Request))
+#38 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('C://Users//Win11P...')
+#39 {main}
+"} 
+[2026-05-05 17:34:35] local.ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'suliradio.zeneid' doesn't exist (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: suliradio, SQL: select `zene`.*, `zeneid`.`id` as `pivot_id`, `zeneid`.`zenemodel_id` as `pivot_zenemodel_id` from `zene` inner join `zeneid` on `zene`.`id` = `zeneid`.`zenemodel_id` where `zeneid`.`id` = 3) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S02): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'suliradio.zeneid' doesn't exist (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: suliradio, SQL: select `zene`.*, `zeneid`.`id` as `pivot_id`, `zeneid`.`zenemodel_id` as `pivot_zenemodel_id` from `zene` inner join `zeneid` on `zene`.`id` = `zeneid`.`zenemodel_id` where `zeneid`.`id` = 3) at C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php:838)
+[stacktrace]
+#0 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(794): Illuminate/Database/Connection->runQueryCallback('select `zene`.*...', Array, Object(Closure))
+#1 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(411): Illuminate/Database/Connection->run('select `zene`.*...', Array, Object(Closure))
+#2 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3505): Illuminate/Database/Connection->select('select `zene`.*...', Array, true)
+#3 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3490): Illuminate/Database/Query/Builder->runSelect()
+#4 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(4080): Illuminate/Database/Query/Builder->Illuminate/Database/Query/{closure}()
+#5 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3489): Illuminate/Database/Query/Builder->onceWithColumns(Array, Object(Closure))
+#6 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(902): Illuminate/Database/Query/Builder->get(Array)
+#7 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php(932): Illuminate/Database/Eloquent/Builder->getModels()
+#8 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php(916): Illuminate/Database/Eloquent/Relations/BelongsToMany->get()
+#9 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php(637): Illuminate/Database/Eloquent/Relations/BelongsToMany->getResults()
+#10 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php(575): Illuminate/Database/Eloquent/Model->getRelationshipFromMethod('zene')
+#11 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php(494): Illuminate/Database/Eloquent/Model->getRelationValue('zene')
+#12 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2423): Illuminate/Database/Eloquent/Model->getAttribute('zene')
+#13 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/app/Http/Controllers/orarendkontroler.php(35): Illuminate/Database/Eloquent/Model->__get('zene')
+#14 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(46): App/Http/Controllers/orarendkontroler->jelenlegizene(Object(Illuminate/Http/Request))
+#15 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(265): Illuminate/Routing/ControllerDispatcher->dispatch(Object(Illuminate/Routing/Route), Object(App/Http/Controllers/orarendkontroler), 'jelenlegizene')
+#16 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(211): Illuminate/Routing/Route->runController()
+#17 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate/Routing/Route->run()
+#18 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
+#19 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#20 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#21 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#22 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(821): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#23 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#24 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(764): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#25 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(753): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#26 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#27 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#28 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#29 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#30 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#31 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#32 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#33 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#34 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#35 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#36 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(109): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#37 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#38 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(74): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#39 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#40 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#41 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#42 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#43 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks->handle(Object(Illuminate/Http/Request), Object(Closure))
+#44 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePathEncoding.php(26): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#45 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePathEncoding->handle(Object(Illuminate/Http/Request), Object(Closure))
+#46 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#47 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#48 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#49 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#50 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/public/index.php(20): Illuminate/Foundation/Application->handleRequest(Object(Illuminate/Http/Request))
+#51 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('C://Users//Win11P...')
+#52 {main}
+
+[previous exception] [object] (PDOException(code: 42S02): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'suliradio.zeneid' doesn't exist at C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php:420)
+[stacktrace]
+#0 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(420): PDO->prepare('select `zene`.*...')
+#1 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(827): Illuminate/Database/Connection->Illuminate/Database/{closure}('select `zene`.*...', Array)
+#2 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(794): Illuminate/Database/Connection->runQueryCallback('select `zene`.*...', Array, Object(Closure))
+#3 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(411): Illuminate/Database/Connection->run('select `zene`.*...', Array, Object(Closure))
+#4 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3505): Illuminate/Database/Connection->select('select `zene`.*...', Array, true)
+#5 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3490): Illuminate/Database/Query/Builder->runSelect()
+#6 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(4080): Illuminate/Database/Query/Builder->Illuminate/Database/Query/{closure}()
+#7 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3489): Illuminate/Database/Query/Builder->onceWithColumns(Array, Object(Closure))
+#8 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(902): Illuminate/Database/Query/Builder->get(Array)
+#9 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php(932): Illuminate/Database/Eloquent/Builder->getModels()
+#10 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php(916): Illuminate/Database/Eloquent/Relations/BelongsToMany->get()
+#11 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php(637): Illuminate/Database/Eloquent/Relations/BelongsToMany->getResults()
+#12 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php(575): Illuminate/Database/Eloquent/Model->getRelationshipFromMethod('zene')
+#13 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php(494): Illuminate/Database/Eloquent/Model->getRelationValue('zene')
+#14 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2423): Illuminate/Database/Eloquent/Model->getAttribute('zene')
+#15 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/app/Http/Controllers/orarendkontroler.php(35): Illuminate/Database/Eloquent/Model->__get('zene')
+#16 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(46): App/Http/Controllers/orarendkontroler->jelenlegizene(Object(Illuminate/Http/Request))
+#17 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(265): Illuminate/Routing/ControllerDispatcher->dispatch(Object(Illuminate/Routing/Route), Object(App/Http/Controllers/orarendkontroler), 'jelenlegizene')
+#18 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(211): Illuminate/Routing/Route->runController()
+#19 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate/Routing/Route->run()
+#20 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
+#21 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#22 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#23 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#24 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(821): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#25 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#26 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(764): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#27 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(753): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#28 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#29 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#30 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#31 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#32 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#33 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#34 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#35 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#36 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#37 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#38 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(109): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#39 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#40 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(74): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#41 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#42 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#43 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#44 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#45 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks->handle(Object(Illuminate/Http/Request), Object(Closure))
+#46 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePathEncoding.php(26): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#47 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePathEncoding->handle(Object(Illuminate/Http/Request), Object(Closure))
+#48 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#49 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#50 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#51 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#52 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/public/index.php(20): Illuminate/Foundation/Application->handleRequest(Object(Illuminate/Http/Request))
+#53 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('C://Users//Win11P...')
+#54 {main}
+"} 
+[2026-05-05 17:39:47] local.ERROR: Symfony\Component\HttpFoundation\Response::setContent(): Argument #1 ($content) must be of type ?string, Illuminate\Database\Eloquent\Relations\BelongsToMany given, called in C:\Users\Win11Prem2026Marcius\Desktop\sulinaiv1\vendor\laravel\framework\src\Illuminate\Http\Response.php on line 81 {"exception":"[object] (TypeError(code: 0): Symfony\\Component\\HttpFoundation\\Response::setContent(): Argument #1 ($content) must be of type ?string, Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany given, called in C:\\Users\\Win11Prem2026Marcius\\Desktop\\sulinaiv1\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php on line 81 at C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/symfony/http-foundation/Response.php:426)
+[stacktrace]
+#0 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Response.php(81): Symfony/Component/HttpFoundation/Response->setContent(Object(Illuminate/Database/Eloquent/Relations/BelongsToMany))
+#1 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Response.php(34): Illuminate/Http/Response->setContent(Object(Illuminate/Database/Eloquent/Relations/BelongsToMany))
+#2 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/ResponseFactory.php(61): Illuminate/Http/Response->__construct(Object(Illuminate/Database/Eloquent/Relations/BelongsToMany), '200', Array)
+#3 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(856): Illuminate/Routing/ResponseFactory->make(Object(Illuminate/Database/Eloquent/Relations/BelongsToMany), '200', Array)
+#4 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/app/Http/Controllers/orarendkontroler.php(35): response(Object(Illuminate/Database/Eloquent/Relations/BelongsToMany), '200')
+#5 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(46): App/Http/Controllers/orarendkontroler->jelenlegizene(Object(Illuminate/Http/Request))
+#6 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(265): Illuminate/Routing/ControllerDispatcher->dispatch(Object(Illuminate/Routing/Route), Object(App/Http/Controllers/orarendkontroler), 'jelenlegizene')
+#7 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(211): Illuminate/Routing/Route->runController()
+#8 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate/Routing/Route->run()
+#9 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
+#10 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#11 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#12 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#13 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(821): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#14 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#15 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(764): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#16 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(753): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#17 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#18 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#19 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#20 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#21 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#22 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#23 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#24 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#25 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#26 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#27 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(109): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#28 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#29 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(74): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#30 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#31 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#32 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#33 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#34 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks->handle(Object(Illuminate/Http/Request), Object(Closure))
+#35 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePathEncoding.php(26): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#36 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePathEncoding->handle(Object(Illuminate/Http/Request), Object(Closure))
+#37 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#38 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#39 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#40 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#41 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/public/index.php(20): Illuminate/Foundation/Application->handleRequest(Object(Illuminate/Http/Request))
+#42 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('C://Users//Win11P...')
+#43 {main}
+"} 
+[2026-05-05 17:40:03] local.ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'suliradio.zeneid' doesn't exist (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: suliradio, SQL: select `zene`.*, `zeneid`.`orarendmodel_id` as `pivot_orarendmodel_id`, `zeneid`.`zenemodel_id` as `pivot_zenemodel_id` from `zene` inner join `zeneid` on `zene`.`id` = `zeneid`.`zenemodel_id` where `zeneid`.`orarendmodel_id` = 3) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S02): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'suliradio.zeneid' doesn't exist (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: suliradio, SQL: select `zene`.*, `zeneid`.`orarendmodel_id` as `pivot_orarendmodel_id`, `zeneid`.`zenemodel_id` as `pivot_zenemodel_id` from `zene` inner join `zeneid` on `zene`.`id` = `zeneid`.`zenemodel_id` where `zeneid`.`orarendmodel_id` = 3) at C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php:838)
+[stacktrace]
+#0 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(794): Illuminate/Database/Connection->runQueryCallback('select `zene`.*...', Array, Object(Closure))
+#1 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(411): Illuminate/Database/Connection->run('select `zene`.*...', Array, Object(Closure))
+#2 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3505): Illuminate/Database/Connection->select('select `zene`.*...', Array, true)
+#3 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3490): Illuminate/Database/Query/Builder->runSelect()
+#4 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(4080): Illuminate/Database/Query/Builder->Illuminate/Database/Query/{closure}()
+#5 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3489): Illuminate/Database/Query/Builder->onceWithColumns(Array, Object(Closure))
+#6 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(902): Illuminate/Database/Query/Builder->get(Array)
+#7 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php(932): Illuminate/Database/Eloquent/Builder->getModels()
+#8 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php(916): Illuminate/Database/Eloquent/Relations/BelongsToMany->get()
+#9 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php(637): Illuminate/Database/Eloquent/Relations/BelongsToMany->getResults()
+#10 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php(575): Illuminate/Database/Eloquent/Model->getRelationshipFromMethod('zene')
+#11 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php(494): Illuminate/Database/Eloquent/Model->getRelationValue('zene')
+#12 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2423): Illuminate/Database/Eloquent/Model->getAttribute('zene')
+#13 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/app/Http/Controllers/orarendkontroler.php(35): Illuminate/Database/Eloquent/Model->__get('zene')
+#14 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(46): App/Http/Controllers/orarendkontroler->jelenlegizene(Object(Illuminate/Http/Request))
+#15 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(265): Illuminate/Routing/ControllerDispatcher->dispatch(Object(Illuminate/Routing/Route), Object(App/Http/Controllers/orarendkontroler), 'jelenlegizene')
+#16 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(211): Illuminate/Routing/Route->runController()
+#17 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate/Routing/Route->run()
+#18 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
+#19 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#20 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#21 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#22 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(821): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#23 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#24 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(764): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#25 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(753): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#26 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#27 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#28 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#29 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#30 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#31 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#32 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#33 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#34 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#35 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#36 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(109): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#37 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#38 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(74): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#39 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#40 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#41 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#42 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#43 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks->handle(Object(Illuminate/Http/Request), Object(Closure))
+#44 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePathEncoding.php(26): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#45 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePathEncoding->handle(Object(Illuminate/Http/Request), Object(Closure))
+#46 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#47 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#48 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#49 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#50 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/public/index.php(20): Illuminate/Foundation/Application->handleRequest(Object(Illuminate/Http/Request))
+#51 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('C://Users//Win11P...')
+#52 {main}
+
+[previous exception] [object] (PDOException(code: 42S02): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'suliradio.zeneid' doesn't exist at C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php:420)
+[stacktrace]
+#0 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(420): PDO->prepare('select `zene`.*...')
+#1 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(827): Illuminate/Database/Connection->Illuminate/Database/{closure}('select `zene`.*...', Array)
+#2 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(794): Illuminate/Database/Connection->runQueryCallback('select `zene`.*...', Array, Object(Closure))
+#3 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Connection.php(411): Illuminate/Database/Connection->run('select `zene`.*...', Array, Object(Closure))
+#4 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3505): Illuminate/Database/Connection->select('select `zene`.*...', Array, true)
+#5 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3490): Illuminate/Database/Query/Builder->runSelect()
+#6 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(4080): Illuminate/Database/Query/Builder->Illuminate/Database/Query/{closure}()
+#7 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3489): Illuminate/Database/Query/Builder->onceWithColumns(Array, Object(Closure))
+#8 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(902): Illuminate/Database/Query/Builder->get(Array)
+#9 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php(932): Illuminate/Database/Eloquent/Builder->getModels()
+#10 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php(916): Illuminate/Database/Eloquent/Relations/BelongsToMany->get()
+#11 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php(637): Illuminate/Database/Eloquent/Relations/BelongsToMany->getResults()
+#12 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php(575): Illuminate/Database/Eloquent/Model->getRelationshipFromMethod('zene')
+#13 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php(494): Illuminate/Database/Eloquent/Model->getRelationValue('zene')
+#14 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2423): Illuminate/Database/Eloquent/Model->getAttribute('zene')
+#15 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/app/Http/Controllers/orarendkontroler.php(35): Illuminate/Database/Eloquent/Model->__get('zene')
+#16 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(46): App/Http/Controllers/orarendkontroler->jelenlegizene(Object(Illuminate/Http/Request))
+#17 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(265): Illuminate/Routing/ControllerDispatcher->dispatch(Object(Illuminate/Routing/Route), Object(App/Http/Controllers/orarendkontroler), 'jelenlegizene')
+#18 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Route.php(211): Illuminate/Routing/Route->runController()
+#19 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate/Routing/Route->run()
+#20 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
+#21 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#22 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#23 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#24 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(821): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#25 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#26 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(764): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#27 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Routing/Router.php(753): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#28 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#29 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#30 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#31 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#32 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#33 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#34 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#35 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#36 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#37 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#38 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(109): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#39 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#40 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(74): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#41 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#42 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#43 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#44 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#45 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks->handle(Object(Illuminate/Http/Request), Object(Closure))
+#46 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePathEncoding.php(26): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#47 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate/Http/Middleware/ValidatePathEncoding->handle(Object(Illuminate/Http/Request), Object(Closure))
+#48 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#49 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#50 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#51 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#52 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/public/index.php(20): Illuminate/Foundation/Application->handleRequest(Object(Illuminate/Http/Request))
+#53 C:/Users/Win11Prem2026Marcius/Desktop/sulinaiv1/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('C://Users//Win11P...')
+#54 {main}
 "} 
