@@ -78,7 +78,7 @@ public function zenefrissites(Request $r){
     $felhasznalo= app(felhasznalokontroller::class)->tokenheztartozofelhasznalo($token);//app('App\Http\Controllers\felhasznalokontroller')->tokenheztartozofelhasznalo($token);
 if(!$felhasznalo){ return response()->json("rossz token",404,["Content-Type"=> "application/json"]);}
 if($felhasznalo->jog< 4){ return response()->json("nincs joga hozza",403,["Content-Type"=>"application/json"]);}
-$validalt= Validator::make($r->all(),[['keresurl'=>['required_without_all:id|regex:/(^(([http])|(https)){1}[:]{1}.*$)|^$/']],'id'=>'required_without_all:keresurl|numeric|min:1',['zeneurl'=>['sometimes|regex:@(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|^$@']], 'eloado'=>'sometimes','cim'=>'sometimes',[['lejatszhatoe'=>'sometimes|regex:/(^(([true])|(false)){1}$)|([0-1]{1})/']],'hossz'=>'sometimes|numeric','tema'=>'sometimes']);
+$validalt= Validator::make($r->all(),[['keresurl'=>['required_without_all:id|regex:@(^((http)|(https)){1}[:]{1}[\/]{2}.+[\/]{1}.+$)|(^$)|(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|(^zenek{1}[\\]{1}.+[.]{1}mp3$)@']],'id'=>'required_without_all:keresurl|numeric|min:1',['zeneurl'=>['sometimes|regex:@((^$)|(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|(^zenek{1}[\\]{1}.+[.]{1}mp3$)@']], 'eloado'=>'sometimes','cim'=>'sometimes',[['lejatszhatoe'=>'sometimes|regex:/(^(([true])|(false)){1}$)|([0-1]{1})/']],'hossz'=>'sometimes|numeric','tema'=>'sometimes']);
 if($validalt->fails()){return response()->json("rossz adatok megadva",403,["Content-Type"=>"application/json"]);}
 //$zene;
 if($r->has('id')){ $zene=zenemodel::find($r->input('id'));}
@@ -100,7 +100,7 @@ public function zenetorles(Request $request){
 if(!$felhasznalo){ return response("rossz token",404); }
 if($felhasznalo->jog<4){ return response("nincs joga hozza",403); }
 //$validalt=$request->validate([]);
-$validalt = Validator::make($request->all(), ['id'=>'required_without_all:keresurl,zeneurl|numeric|min:1',['keresurl'=>['required_without_all:id,zeneurl|regex:@(^(([http])|(https)){1}[:]{1}[//]{1}.+$)|(^$)@']],['zeneurl'=>['required_without_all:keresurl,id|regex:@(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|^$@']]]);
+$validalt = Validator::make($request->all(), ['id'=>'required_without_all:keresurl,zeneurl|numeric|min:1',['keresurl'=>['required_without_all:id,zeneurl|regex:@(^((http)|(https)){1}[:]{1}[\/]{2}.+[\/]{1}.+$)|(^$)|(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|(^zenek{1}[\\]{1}.+[.]{1}mp3$)@']],['zeneurl'=>['required_without_all:keresurl,id|regex:@(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|(^zenek{1}[\\]{1}.+[.]{1}mp3$)@']]]);
 if($validalt->fails()){return response("rossz adatok megadva",403);}
 if($request->has("id")){ $zene=zenemodel::find( $request->input('id'));}
 else if($request->has('zeneurl')){$zene=zenemodel::where('zeneurl',$request->input('zeneurl'));}
@@ -122,7 +122,7 @@ public function zenefeltoltes(Request $request){
 if(!$felhasznalo){ return response("rossz token",404); }
 if($felhasznalo->jog<4){ return response("nincs joga hozza",403); }
 //$validalt=$request->validate([]);
-$validalt = Validator::make($request->all(), [['keresurl'=>['sometimes|regex:@(^(([http])|(https)){1}[:]{1}[//]{1}.+$)|(^$)@']],['zeneurl'=>['required|regex:@(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|^$@']],'cim'=>'sometimes|nullable','eloado'=>'sometimes|nullable','lejatszatoe'=>'sometimes|nullable|numeric|min:0|max:1','hossz'=>'sometimes|nullable|numeric|min:1','tema'=>'sometimes|nullable']);
+$validalt = Validator::make($request->all(), [['keresurl'=>['sometimes|regex:@(^((http)|(https)){1}[:]{1}[\/]{2}.+[\/]{1}.+$)|(^$)|(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|(^zenek{1}[\\]{1}.+[.]{1}mp3$)@']],['zeneurl'=>['required|regex:@(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|(^zenek{1}[\\]{1}.+[.]{1}mp3$)@']],'cim'=>'sometimes|nullable','eloado'=>'sometimes|nullable','lejatszatoe'=>'sometimes|nullable|numeric|min:0|max:1','hossz'=>'sometimes|nullable|numeric|min:1','tema'=>'sometimes|nullable']);
 if($validalt->fails()){return response("rossz adatok megadva",403);}
 //}}}}}
 //if($request->has("id")){ $zene=zenemodel::find( $request->input('id'));}

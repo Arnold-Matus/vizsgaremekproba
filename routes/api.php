@@ -16,7 +16,7 @@ Route::get('/user', function (Request $request) {
 Route::get('/teszttt', function () {return response("oke",204);});
 
 Route::get('/felhasznalotokenbol/{token}', function (Request $r) {return response()->json(felhasznalomodel::where('token', $r->header("toke"))->first(),200,['Content-Type'=>'application/json']);});
-Route::get('/ido', function () {return response(Carbon\Carbon::now() ,200);});
+Route::get('/ido', function () {return response(Carbon\Carbon::now() ,200);});//->middleware('throttle:10,1');
 Route::post('/regisztracio',[felhasznalokontroller::class,'regisztracio']);
 Route::post('/nemnormalfelhasznaloregisztracio',[felhasznalokontroller::class,'regisztraciobarmilyenjogut']);
 Route::post('/bejelentkezes',[felhasznalokontroller::class,'bejelentkezes']);
@@ -50,7 +50,7 @@ Route::get('/szuneteklistaja',[szunetkontroller::class,'szuneteklistaja']);
 Route::delete('/szunettorles/{hanyadik}',[szunetkontroller::class,'szunettorles']);
 Route::post('/szunethozzaadas',[szunetkontroller::class,'szunethozzaadas']);
 Route::put('/szunetmodositas/{hanyadik}',[szunetkontroller::class,'szunetmodositas']);
-Route::post('/bekeres/{url}',[kereskontroller::class,'bekeres']);
+Route::post('/bekeres',[kereskontroller::class,'bekeres']);
 Route::delete('/kerestorles',[kereskontroller::class,'kerestorles']);
 Route::get('/kereseklistazasa',[kereskontroller::class,'kereseklistazasa']);
 Route::put('/bejelentkezettfelhasznalofrissit',[felhasznalokontroller::class,'bejelentkezettfelhasznalofrissit']);
