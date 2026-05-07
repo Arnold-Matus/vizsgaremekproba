@@ -134,6 +134,19 @@ zenemodel::create($request->only(['zeneurl','eloado','cim','lejatszhatoe','hossz
 return response('',204);
 }
 
+public function idalapjankapottzeneadatai(Request $request,$id){
+    try{
+
+    $zenne=zenemodel::find($id);
+    if(!$zenne){
+        return response()->json("nincs ilyen id-ju zene",403,["Content-Type"=>"application/json"]);
+
+    }
+    return response()->json($zenne->toArray(),200,["Content-Type"=>"application/json"]);
+    }
+    catch (\Exception $e){return response()->json('hiba backenden',500,["Content-Type"=>'application/json']);}
+}
+
 
 
 

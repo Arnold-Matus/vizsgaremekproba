@@ -53,8 +53,8 @@ if($felhasznalo->jog<2){ return response("nincs joga hozza",403); }
 //$validalt=$request->validate([]);
 //$validalt = Validator::make($request->all(), [['keresurl'=>['required|regex:@(^(([http])|(https)){1}[:]{1}[//]{1}.+$)|(^$)@']],['zeneurl'=>['required|regex:@(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|^$@']],'cim'=>'sometimes|nullable','eloado'=>'sometimes|nullable','lejatszatoe'=>'sometimes|nullable|numeric|min:0|max:1','hossz'=>'sometimes|nullable|numeric|min:1','tema'=>'sometimes|nullable']);
 //if($validalt->fails()){return response("rossz adatok megadva",403);}
-if(!preg_match('@(^((http)|(https)){1}[:]{1}[\/]{2}.+[\/]{1}.+$)|(^$)|(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|(^zenek{1}[\\]{1}.+[.]{1}mp3$)@',$url)){
- return response('rossz url megadva',400);}
+//if(!preg_match('@(^((http)|(https)){1}[:]{1}[\/]{2}.+[\/]{1}.+$)|(^$)|(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|(^zenek{1}[\\]{1}.+[.]{1}mp3$)@',$url)){
+ //return response('rossz url megadva',400);}
 keresmodel::create(['felhasznaloid'=>$felhasznalo->id,'zeneurl'=>$url,'validalte'=>0,'mikor'=>now()]);
 return response('',204);   
 }

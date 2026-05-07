@@ -59,6 +59,7 @@ Route::get('/jelenlegbejelentkezettfelhasznalok',[felhasznalokontroller::class,'
 Route::put('/szerepkorkezeles/{email}',[felhasznalokontroller::class,'szerepkorkezeles']);
 Route::put('/felhasznaloadatokfrissit/{email}',[felhasznalokontroller::class,'felhasznaloadatokfrissit']);
 
+Route::get('/idalapjankapottzeneadatai/{id}',[zenekontroler::class,'idalapjankapottzeneadatai']);
 
 /* Source - https://stackoverflow.com/a/77859972
 // Posted by Rashid 

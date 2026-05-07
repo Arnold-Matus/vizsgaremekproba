@@ -60,7 +60,7 @@ return response('',204);
 //$validalt=$request->validate([]);
 //$validalt = Validator::make($request->all(), ['id'=>'required_without_all:mikortol|numeric|min:1',['mikortol'=>['required_without_all:id|date']]]);
 //if($validalt->fails()){return response("rossz adatok megadva",403);}
-$maiorarend= orarendmodel::whereBetween('mikortol',[today()->startOfDay(),today()->endOfDay()]);
+$maiorarend= orarendmodel::whereBetween('mikortol',[today()->startOfDay(),today()->endOfDay()])->get();
 return response()->json($maiorarend,200,['Content-Type'=>'application/json']);
     }
     public function teljesorarend(Request $request){
