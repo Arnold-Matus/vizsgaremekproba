@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\felhasznalomodel;
+use Carbon\Traits\ToStringFormat;
 use DB;
+use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -53,10 +55,12 @@ public function tokenheztartozofelhasznalo($token){
        if()*/ //bejelnetkezesnel nincs meg token
       if(!$request->has("email")|| ! $request->has("jelszo")){ return response("nincs minden adat megadva",401); }
         $email= $request->input('email'); // base64_decode( $request->email,true);
-       $jelszo=base64_decode($request->input(' jelszo'),true);
+       $jelszo=base64_decode($request->input('jelszo'),false);
        $felhasznalo = felhasznalomodel::where("email",$email)->first();
        if($felhasznalo==null){ return response("nincs ilyen felhasznalo",401); }
-       if($felhasznalo->jelszoh==bcrypt(base64_decode(  $jelszo,true)) ){ return response("rossz jelszo",401); }
+       //if(($felhasznalo->jelszoh!=bcrypt($jelszo)) )
+       if(!Hash::check($jelszo,$felhasznalo->jelszoh))
+        { return response("rossz jelszo megadva",401); }
         $felhasznalo=$this->tokenkeszites($felhasznalo,0);
         return response($felhasznalo->token,200);
     }
