@@ -28,25 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lb_zenelista = new ListBox();
-            lb_varolista = new ListBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             tb_cim = new TextBox();
             groupBox1 = new GroupBox();
-            lb_idosav = new Label();
-            trackBar1 = new TrackBar();
-            button2 = new Button();
             button1 = new Button();
+            button3 = new Button();
+            lb_idosav = new Label();
+            button2 = new Button();
             lb_vezerles = new Label();
             tb_eloado = new TextBox();
             label2 = new Label();
             menuStrip1 = new MenuStrip();
             fájlToolStripMenuItem = new ToolStripMenuItem();
+            beállításokBetöltéseToolStripMenuItem = new ToolStripMenuItem();
+            beállításokMentéseToolStripMenuItem = new ToolStripMenuItem();
             zenemappaHelyénekMegadásaToolStripMenuItem = new ToolStripMenuItem();
-            felhasználóToolStripMenuItem = new ToolStripMenuItem();
-            bejelentkezésToolStripMenuItem = new ToolStripMenuItem();
-            felhasználóváltásToolStripMenuItem = new ToolStripMenuItem();
-            kijelentkezésToolStripMenuItem = new ToolStripMenuItem();
+            letöltöttZenékMegnyitásaToolStripMenuItem = new ToolStripMenuItem();
+            zenemappaBezárásaToolStripMenuItem = new ToolStripMenuItem();
+            zenelistaFrissítéseToolStripMenuItem = new ToolStripMenuItem();
+            kilépésToolStripMenuItem = new ToolStripMenuItem();
+            beállításokToolStripMenuItem = new ToolStripMenuItem();
+            zeneletöltőToolStripMenuItem = new ToolStripMenuItem();
+            kérésekJóváhagyásaToolStripMenuItem = new ToolStripMenuItem();
             label3 = new Label();
             label4 = new Label();
             groupBox2 = new GroupBox();
@@ -55,38 +59,18 @@
             bt_hozzaad = new Button();
             tb_kereses = new TextBox();
             label5 = new Label();
-            rb_kijelolteloado = new TextBox();
+            tb_kijelolteloado = new TextBox();
             label7 = new Label();
             tb_kijeloltcim = new TextBox();
             label8 = new Label();
-            beállításokToolStripMenuItem = new ToolStripMenuItem();
-            csengetésiRendToolStripMenuItem = new ToolStripMenuItem();
-            továbbiBeállításokToolStripMenuItem = new ToolStripMenuItem();
-            zenemappaBezárásaToolStripMenuItem = new ToolStripMenuItem();
-            kilépésToolStripMenuItem = new ToolStripMenuItem();
+            lv_zenelista = new ListView();
+            lv_varolista = new ListView();
+            pictureBox1 = new PictureBox();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             menuStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // lb_zenelista
-            // 
-            lb_zenelista.FormattingEnabled = true;
-            lb_zenelista.ItemHeight = 15;
-            lb_zenelista.Location = new Point(12, 43);
-            lb_zenelista.Name = "lb_zenelista";
-            lb_zenelista.Size = new Size(274, 559);
-            lb_zenelista.TabIndex = 0;
-            // 
-            // lb_varolista
-            // 
-            lb_varolista.FormattingEnabled = true;
-            lb_varolista.ItemHeight = 15;
-            lb_varolista.Location = new Point(292, 43);
-            lb_varolista.Name = "lb_varolista";
-            lb_varolista.Size = new Size(280, 559);
-            lb_varolista.TabIndex = 1;
             // 
             // label1
             // 
@@ -102,28 +86,55 @@
             // 
             tb_cim.Location = new Point(6, 40);
             tb_cim.Name = "tb_cim";
+            tb_cim.ReadOnly = true;
             tb_cim.Size = new Size(261, 23);
             tb_cim.TabIndex = 3;
             tb_cim.Text = "Cím";
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(lb_idosav);
-            groupBox1.Controls.Add(trackBar1);
-            groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(button3);
+            groupBox1.Controls.Add(lb_idosav);
+            groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(lb_vezerles);
             groupBox1.Controls.Add(tb_eloado);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(tb_cim);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(578, 27);
+            groupBox1.Location = new Point(1118, 28);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(273, 574);
+            groupBox1.Size = new Size(273, 293);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "Aktuális zene:";
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.DarkGray;
+            button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(152, 222);
+            button1.Name = "button1";
+            button1.Size = new Size(115, 62);
+            button1.TabIndex = 12;
+            button1.Text = "Offline mód";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.DarkGray;
+            button3.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            button3.ForeColor = Color.White;
+            button3.Location = new Point(152, 155);
+            button3.Name = "button3";
+            button3.Size = new Size(115, 62);
+            button3.TabIndex = 11;
+            button3.Text = "Automatikus lejátszás: KI";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // lb_idosav
             // 
@@ -133,33 +144,18 @@
             lb_idosav.Size = new Size(24, 15);
             lb_idosav.TabIndex = 10;
             lb_idosav.Text = "Idő";
-            // 
-            // trackBar1
-            // 
-            trackBar1.Location = new Point(6, 241);
-            trackBar1.Name = "trackBar1";
-            trackBar1.Size = new Size(261, 45);
-            trackBar1.TabIndex = 9;
+            lb_idosav.Click += lb_idosav_Click;
             // 
             // button2
             // 
-            button2.Font = new Font("Segoe UI", 30F);
+            button2.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 238);
             button2.Location = new Point(6, 155);
             button2.Name = "button2";
-            button2.Size = new Size(67, 62);
+            button2.Size = new Size(140, 62);
             button2.TabIndex = 8;
-            button2.Text = "⏯";
+            button2.Text = "⏯/⏩";
             button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Font = new Font("Segoe UI", 30F);
-            button1.Location = new Point(79, 155);
-            button1.Name = "button1";
-            button1.Size = new Size(67, 62);
-            button1.TabIndex = 7;
-            button1.Text = "⏭";
-            button1.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // lb_vezerles
             // 
@@ -174,6 +170,7 @@
             // 
             tb_eloado.Location = new Point(6, 95);
             tb_eloado.Name = "tb_eloado";
+            tb_eloado.ReadOnly = true;
             tb_eloado.Size = new Size(261, 23);
             tb_eloado.TabIndex = 5;
             tb_eloado.Text = "Előadó";
@@ -189,50 +186,90 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fájlToolStripMenuItem, felhasználóToolStripMenuItem, beállításokToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fájlToolStripMenuItem, beállításokToolStripMenuItem, zeneletöltőToolStripMenuItem, kérésekJóváhagyásaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1155, 24);
+            menuStrip1.Size = new Size(1680, 24);
             menuStrip1.TabIndex = 5;
             menuStrip1.Text = "menuStrip1";
             // 
             // fájlToolStripMenuItem
             // 
-            fájlToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { zenemappaHelyénekMegadásaToolStripMenuItem, zenemappaBezárásaToolStripMenuItem, kilépésToolStripMenuItem });
+            fájlToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { beállításokBetöltéseToolStripMenuItem, beállításokMentéseToolStripMenuItem, zenemappaHelyénekMegadásaToolStripMenuItem, letöltöttZenékMegnyitásaToolStripMenuItem, zenemappaBezárásaToolStripMenuItem, zenelistaFrissítéseToolStripMenuItem, kilépésToolStripMenuItem });
             fájlToolStripMenuItem.Name = "fájlToolStripMenuItem";
             fájlToolStripMenuItem.Size = new Size(37, 20);
             fájlToolStripMenuItem.Text = "Fájl";
+            fájlToolStripMenuItem.Click += fájlToolStripMenuItem_Click;
+            // 
+            // beállításokBetöltéseToolStripMenuItem
+            // 
+            beállításokBetöltéseToolStripMenuItem.Name = "beállításokBetöltéseToolStripMenuItem";
+            beállításokBetöltéseToolStripMenuItem.Size = new Size(244, 22);
+            beállításokBetöltéseToolStripMenuItem.Text = "Beállítások betöltése";
+            beállításokBetöltéseToolStripMenuItem.Click += beállításokBetöltéseToolStripMenuItem_Click;
+            // 
+            // beállításokMentéseToolStripMenuItem
+            // 
+            beállításokMentéseToolStripMenuItem.Name = "beállításokMentéseToolStripMenuItem";
+            beállításokMentéseToolStripMenuItem.Size = new Size(244, 22);
+            beállításokMentéseToolStripMenuItem.Text = "Beállítások mentése";
+            beállításokMentéseToolStripMenuItem.Click += beállításokMentéseToolStripMenuItem_Click;
             // 
             // zenemappaHelyénekMegadásaToolStripMenuItem
             // 
             zenemappaHelyénekMegadásaToolStripMenuItem.Name = "zenemappaHelyénekMegadásaToolStripMenuItem";
             zenemappaHelyénekMegadásaToolStripMenuItem.Size = new Size(244, 22);
             zenemappaHelyénekMegadásaToolStripMenuItem.Text = "Zenemappa helyének megadása";
+            zenemappaHelyénekMegadásaToolStripMenuItem.Click += zenemappaHelyénekMegadásaToolStripMenuItem_Click;
             // 
-            // felhasználóToolStripMenuItem
+            // letöltöttZenékMegnyitásaToolStripMenuItem
             // 
-            felhasználóToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { bejelentkezésToolStripMenuItem, felhasználóváltásToolStripMenuItem, kijelentkezésToolStripMenuItem });
-            felhasználóToolStripMenuItem.Name = "felhasználóToolStripMenuItem";
-            felhasználóToolStripMenuItem.Size = new Size(80, 20);
-            felhasználóToolStripMenuItem.Text = "Felhasználó";
+            letöltöttZenékMegnyitásaToolStripMenuItem.Name = "letöltöttZenékMegnyitásaToolStripMenuItem";
+            letöltöttZenékMegnyitásaToolStripMenuItem.Size = new Size(244, 22);
+            letöltöttZenékMegnyitásaToolStripMenuItem.Text = "Letöltött zenék megnyitása";
+            letöltöttZenékMegnyitásaToolStripMenuItem.Click += letöltöttZenékMegnyitásaToolStripMenuItem_Click;
             // 
-            // bejelentkezésToolStripMenuItem
+            // zenemappaBezárásaToolStripMenuItem
             // 
-            bejelentkezésToolStripMenuItem.Name = "bejelentkezésToolStripMenuItem";
-            bejelentkezésToolStripMenuItem.Size = new Size(180, 22);
-            bejelentkezésToolStripMenuItem.Text = "Bejelentkezés";
+            zenemappaBezárásaToolStripMenuItem.Name = "zenemappaBezárásaToolStripMenuItem";
+            zenemappaBezárásaToolStripMenuItem.Size = new Size(244, 22);
+            zenemappaBezárásaToolStripMenuItem.Text = "Zenelista törlése";
+            zenemappaBezárásaToolStripMenuItem.Click += zenemappaBezárásaToolStripMenuItem_Click;
             // 
-            // felhasználóváltásToolStripMenuItem
+            // zenelistaFrissítéseToolStripMenuItem
             // 
-            felhasználóváltásToolStripMenuItem.Name = "felhasználóváltásToolStripMenuItem";
-            felhasználóváltásToolStripMenuItem.Size = new Size(180, 22);
-            felhasználóváltásToolStripMenuItem.Text = "Felhasználóváltás";
+            zenelistaFrissítéseToolStripMenuItem.Name = "zenelistaFrissítéseToolStripMenuItem";
+            zenelistaFrissítéseToolStripMenuItem.Size = new Size(244, 22);
+            zenelistaFrissítéseToolStripMenuItem.Text = "Zenelista frissítése";
+            zenelistaFrissítéseToolStripMenuItem.Click += zenelistaFrissítéseToolStripMenuItem_Click;
             // 
-            // kijelentkezésToolStripMenuItem
+            // kilépésToolStripMenuItem
             // 
-            kijelentkezésToolStripMenuItem.Name = "kijelentkezésToolStripMenuItem";
-            kijelentkezésToolStripMenuItem.Size = new Size(180, 22);
-            kijelentkezésToolStripMenuItem.Text = "Kijelentkezés";
+            kilépésToolStripMenuItem.Name = "kilépésToolStripMenuItem";
+            kilépésToolStripMenuItem.Size = new Size(244, 22);
+            kilépésToolStripMenuItem.Text = "Kilépés";
+            kilépésToolStripMenuItem.Click += kilépésToolStripMenuItem_Click;
+            // 
+            // beállításokToolStripMenuItem
+            // 
+            beállításokToolStripMenuItem.Name = "beállításokToolStripMenuItem";
+            beállításokToolStripMenuItem.Size = new Size(159, 20);
+            beállításokToolStripMenuItem.Text = "Csengetési rend szerkesztő";
+            beállításokToolStripMenuItem.Click += beállításokToolStripMenuItem_Click;
+            // 
+            // zeneletöltőToolStripMenuItem
+            // 
+            zeneletöltőToolStripMenuItem.Name = "zeneletöltőToolStripMenuItem";
+            zeneletöltőToolStripMenuItem.Size = new Size(79, 20);
+            zeneletöltőToolStripMenuItem.Text = "Zeneletöltő";
+            zeneletöltőToolStripMenuItem.Click += zeneletöltőToolStripMenuItem_Click;
+            // 
+            // kérésekJóváhagyásaToolStripMenuItem
+            // 
+            kérésekJóváhagyásaToolStripMenuItem.Name = "kérésekJóváhagyásaToolStripMenuItem";
+            kérésekJóváhagyásaToolStripMenuItem.Size = new Size(127, 20);
+            kérésekJóváhagyásaToolStripMenuItem.Text = "Kérések jóváhagyása";
+            kérésekJóváhagyásaToolStripMenuItem.Click += kérésekJóváhagyásaToolStripMenuItem_Click;
             // 
             // label3
             // 
@@ -246,7 +283,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(292, 24);
+            label4.Location = new Point(557, 24);
             label4.Name = "label4";
             label4.Size = new Size(216, 15);
             label4.TabIndex = 7;
@@ -259,13 +296,13 @@
             groupBox2.Controls.Add(bt_hozzaad);
             groupBox2.Controls.Add(tb_kereses);
             groupBox2.Controls.Add(label5);
-            groupBox2.Controls.Add(rb_kijelolteloado);
+            groupBox2.Controls.Add(tb_kijelolteloado);
             groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(tb_kijeloltcim);
             groupBox2.Controls.Add(label8);
-            groupBox2.Location = new Point(857, 28);
+            groupBox2.Location = new Point(1397, 28);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(273, 574);
+            groupBox2.Size = new Size(273, 293);
             groupBox2.TabIndex = 11;
             groupBox2.TabStop = false;
             groupBox2.Text = "Kijelölt zene:";
@@ -288,6 +325,7 @@
             bt_eltavolit.TabIndex = 9;
             bt_eltavolit.Text = "Eltávolítás a várólistáról";
             bt_eltavolit.UseVisualStyleBackColor = true;
+            bt_eltavolit.Click += bt_eltavolit_Click;
             // 
             // bt_hozzaad
             // 
@@ -297,6 +335,7 @@
             bt_hozzaad.TabIndex = 8;
             bt_hozzaad.Text = "Hozzáadás a várólistához";
             bt_hozzaad.UseVisualStyleBackColor = true;
+            bt_hozzaad.Click += bt_hozzaad_Click;
             // 
             // tb_kereses
             // 
@@ -315,13 +354,14 @@
             label5.TabIndex = 6;
             label5.Text = "Keresés:";
             // 
-            // rb_kijelolteloado
+            // tb_kijelolteloado
             // 
-            rb_kijelolteloado.Location = new Point(6, 149);
-            rb_kijelolteloado.Name = "rb_kijelolteloado";
-            rb_kijelolteloado.Size = new Size(261, 23);
-            rb_kijelolteloado.TabIndex = 5;
-            rb_kijelolteloado.Text = "Előadó";
+            tb_kijelolteloado.Location = new Point(6, 149);
+            tb_kijelolteloado.Name = "tb_kijelolteloado";
+            tb_kijelolteloado.ReadOnly = true;
+            tb_kijelolteloado.Size = new Size(261, 23);
+            tb_kijelolteloado.TabIndex = 5;
+            tb_kijelolteloado.Text = "Előadó";
             // 
             // label7
             // 
@@ -336,6 +376,7 @@
             // 
             tb_kijeloltcim.Location = new Point(6, 94);
             tb_kijeloltcim.Name = "tb_kijeloltcim";
+            tb_kijeloltcim.ReadOnly = true;
             tb_kijeloltcim.Size = new Size(261, 23);
             tb_kijeloltcim.TabIndex = 3;
             tb_kijeloltcim.Text = "Cím";
@@ -349,88 +390,79 @@
             label8.TabIndex = 2;
             label8.Text = "Cím:";
             // 
-            // beállításokToolStripMenuItem
+            // lv_zenelista
             // 
-            beállításokToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { csengetésiRendToolStripMenuItem, továbbiBeállításokToolStripMenuItem });
-            beállításokToolStripMenuItem.Name = "beállításokToolStripMenuItem";
-            beállításokToolStripMenuItem.Size = new Size(75, 20);
-            beállításokToolStripMenuItem.Text = "Beállítások";
+            lv_zenelista.Location = new Point(12, 43);
+            lv_zenelista.Name = "lv_zenelista";
+            lv_zenelista.Size = new Size(539, 558);
+            lv_zenelista.TabIndex = 12;
+            lv_zenelista.UseCompatibleStateImageBehavior = false;
+            lv_zenelista.SelectedIndexChanged += listView1_SelectedIndexChanged;
             // 
-            // csengetésiRendToolStripMenuItem
+            // lv_varolista
             // 
-            csengetésiRendToolStripMenuItem.Name = "csengetésiRendToolStripMenuItem";
-            csengetésiRendToolStripMenuItem.Size = new Size(180, 22);
-            csengetésiRendToolStripMenuItem.Text = "Csengetési rend";
+            lv_varolista.Location = new Point(557, 42);
+            lv_varolista.Name = "lv_varolista";
+            lv_varolista.Size = new Size(555, 560);
+            lv_varolista.TabIndex = 13;
+            lv_varolista.UseCompatibleStateImageBehavior = false;
             // 
-            // továbbiBeállításokToolStripMenuItem
+            // pictureBox1
             // 
-            továbbiBeállításokToolStripMenuItem.Name = "továbbiBeállításokToolStripMenuItem";
-            továbbiBeállításokToolStripMenuItem.Size = new Size(180, 22);
-            továbbiBeállításokToolStripMenuItem.Text = "További beállítások";
-            // 
-            // zenemappaBezárásaToolStripMenuItem
-            // 
-            zenemappaBezárásaToolStripMenuItem.Name = "zenemappaBezárásaToolStripMenuItem";
-            zenemappaBezárásaToolStripMenuItem.Size = new Size(244, 22);
-            zenemappaBezárásaToolStripMenuItem.Text = "Zenemappa bezárása";
-            // 
-            // kilépésToolStripMenuItem
-            // 
-            kilépésToolStripMenuItem.Name = "kilépésToolStripMenuItem";
-            kilépésToolStripMenuItem.Size = new Size(244, 22);
-            kilépésToolStripMenuItem.Text = "Kilépés";
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(1118, 327);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(551, 275);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 14;
+            pictureBox1.TabStop = false;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1155, 613);
+            ClientSize = new Size(1680, 613);
+            Controls.Add(pictureBox1);
+            Controls.Add(lv_varolista);
+            Controls.Add(lv_zenelista);
             Controls.Add(groupBox2);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(groupBox1);
-            Controls.Add(lb_varolista);
-            Controls.Add(lb_zenelista);
             Controls.Add(menuStrip1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             Name = "Form1";
-            Text = "Form1";
+            Text = "Sulirádió - kezdőképernyő";
+            Load += Form1_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private ListBox lb_zenelista;
-        private ListBox lb_varolista;
         private Label label1;
         private TextBox tb_cim;
         private GroupBox groupBox1;
         private Button button2;
-        private Button button1;
         private Label lb_vezerles;
         private TextBox tb_eloado;
         private Label label2;
         private Label lb_idosav;
-        private TrackBar trackBar1;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fájlToolStripMenuItem;
         private ToolStripMenuItem zenemappaHelyénekMegadásaToolStripMenuItem;
         private Label label3;
         private Label label4;
-        private ToolStripMenuItem felhasználóToolStripMenuItem;
-        private ToolStripMenuItem bejelentkezésToolStripMenuItem;
-        private ToolStripMenuItem felhasználóváltásToolStripMenuItem;
-        private ToolStripMenuItem kijelentkezésToolStripMenuItem;
         private GroupBox groupBox2;
-        private TextBox rb_kijelolteloado;
+        private TextBox tb_kijelolteloado;
         private Label label7;
         private TextBox tb_kijeloltcim;
         private Label label8;
@@ -441,8 +473,17 @@
         private Button bt_adatmodosit;
         private ToolStripMenuItem zenemappaBezárásaToolStripMenuItem;
         private ToolStripMenuItem beállításokToolStripMenuItem;
-        private ToolStripMenuItem csengetésiRendToolStripMenuItem;
-        private ToolStripMenuItem továbbiBeállításokToolStripMenuItem;
         private ToolStripMenuItem kilépésToolStripMenuItem;
+        private ListView lv_zenelista;
+        private ListView lv_varolista;
+        private Button button3;
+        private ToolStripMenuItem letöltöttZenékMegnyitásaToolStripMenuItem;
+        private ToolStripMenuItem zeneletöltőToolStripMenuItem;
+        private ToolStripMenuItem beállításokBetöltéseToolStripMenuItem;
+        private ToolStripMenuItem beállításokMentéseToolStripMenuItem;
+        private ToolStripMenuItem zenelistaFrissítéseToolStripMenuItem;
+        private Button button1;
+        private ToolStripMenuItem kérésekJóváhagyásaToolStripMenuItem;
+        private PictureBox pictureBox1;
     }
 }
