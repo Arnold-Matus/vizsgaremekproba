@@ -79,8 +79,8 @@ public function zenefrissites(Request $r){
     $felhasznalo= app(felhasznalokontroller::class)->tokenheztartozofelhasznalo($token);//app('App\Http\Controllers\felhasznalokontroller')->tokenheztartozofelhasznalo($token);
 if(!$felhasznalo){ return response()->json("rossz token",404,["Content-Type"=> "application/json"]);}
 if($felhasznalo->jog< 4){ return response()->json("nincs joga hozza",403,["Content-Type"=>"application/json"]);}
-$validalt= Validator::make($r->all(),[['keresurl'=>['required_without_all:id|regex:@(^((http)|(https)){1}[:]{1}[\/]{2}.+[\/]{1}.+$)|(^$)|(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|(^zenek{1}[\\]{1}.+[.]{1}mp3$)@']],[['id'=>'required_without_all:keresurl|numeric|min:1']],[['zeneurl'=>'sometimes|regex:@((^$)|(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|(^zenek{1}[\\]{1}.+[.]{1}mp3$))@']], ['eloado'=>['sometimes']],['cim'=>['sometimes']],['lejatszhatoe'=>['sometimes|regex:/^[0-1]{1}$/']],['hossz'=>['sometimes|numeric']],['tema'=>['sometimes']]]);
-if($validalt->fails()){return response()->json("rossz adatok megadva",403,["Content-Type"=>"application/json"]);}
+//$validalt= Validator::make($r->all(),[['keresurl'=>['required_without_all:id|regex:@(^((http)|(https)){1}[:]{1}[\/]{2}.+[\/]{1}.+$)|(^$)|(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|(^zenek{1}[\\]{1}.+[.]{1}mp3$)@']],[['id'=>'required_without_all:keresurl|numeric|min:1']],[['zeneurl'=>'sometimes|regex:@((^$)|(^[C-Z]{1}:[\\]{1}.+[\\]{1}.*[\\]{1}.+[.]{1}mp3$)|(^zenek{1}[\\]{1}.+[.]{1}mp3$))@']], ['eloado'=>['sometimes']],['cim'=>['sometimes']],['lejatszhatoe'=>['sometimes|regex:/^[0-1]{1}$/']],['hossz'=>['sometimes|numeric']],['tema'=>['sometimes']]]);
+//if($validalt->fails()){return response()->json("rossz adatok megadva",403,["Content-Type"=>"application/json"]);}
 //$zene;
 if($r->has('id')){ $zene=zenemodel::find($r->input('id'));}
 else{$zene=$zene = zenemodel::where("keresurl",$r->input('keresurl'))->first();}
@@ -108,10 +108,13 @@ $validalt = Validator::make($request->all(), ['id'=>'required_without_all:keresu
 if($validalt->fails()){return response("rossz adatok megadva",403);}
 if($request->has("id")){ $zene=zenemodel::find( $request->input('id'));}
 else if($request->has('zeneurl')){$zene=zenemodel::where('zeneurl',$request->input('zeneurl'));}
-else{ $zene=zenemodel::where('keresurl',$request->input('keresurl'));}
+
+
+else{     zenemodel::where('keresurl',$request->input('keresurl'))->first();}
 if(empty($zene)){ return response('rossz adatok megadva',403); }
+
 $zene->delete();
-return response('',204);
+return response('',204) ;
 }
 public function feltoltendok(Request $request){
     return response()->json((DB::select('select * from feltoltendok')),200,["Content-Type"=>"application/json"]);
