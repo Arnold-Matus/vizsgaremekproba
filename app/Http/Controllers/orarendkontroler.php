@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\orarendmodel;
 use App\Models\zenemodel;
 use Carbon\Carbon;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -20,7 +21,7 @@ class orarendkontroler extends Controller
         //
     }public function jelenlegizeneminden(Request $r){
     //nincs validacio, token publikus
-    $talanmostani=orarendmodel::where("meddig",">=",Carbon::now())->orderBy("mikor")->limit(1)->first();
+    $talanmostani=orarendmodel::where("meddig",">=",Carbon::now())->orderBy("mikortol")->limit(1)->first();
 
     if(empty($talanmostani)){return response("nincs",404);}
     if($talanmostani->mikor>=Carbon::now()){return response(zenemodel::where('keresurl',$talanmostani->zeneid)->first(),"200");}
@@ -106,10 +107,20 @@ public function xnapiorarend(Request $request,$mikkorr){
 //$validalt=$request->validate([]);
 //$validalt = Validator::make($request->all(), ['id'=>'required_without_all:mikortol|numeric|min:1',['mikortol'=>['required_without_all:id|date']]]);
 //if($validalt->fails()){return response("rossz adatok megadva",403);}
-$mikrotoll= \DateTime::createFromFormat('Y-m-d', $mikkorr)->format('Y-m-d');
-$akkorioraren= DB::select('SELECT * FROM orarend where mikortol like '.$mikrotoll.'%'); //orarendmodel::whereDate('mik);
+//$mikkorr=\strtotime($mikkorr);
+$mm=$mikkorr." 00:00:00"; 
+$mikrotoll= \DateTime::createFromFormat('Y-m-d H:i:s', $mm);//->format('Y-m-d');
+
+//$mikrotoll= \DateTime::createFromFormat('Y-m-d', $mikkorr);//->format('Y-m-d');
+//$mikrotollk= $mikrotoll->setTime(0, 0, 0);
+//$eddig = $mikrotoll->setTime(23,59,59);
+//$nap=date('Y-M-D h:i:s',strtotime( $mikkorr));
+//$nap= getdate( strtotime( $mikkorr));
+//$akkorioraren=orarendmodel::whereBetween('mikortol',[$mikrotollk->getTimestamp()->startOfDay(),$eddig->getTimestamp()->endOfDay()])->get(); // DB::select('SELECT * FROM orarend where mikortol like '.$mikrotoll.'%'); //orarendmodel::whereDate('mik);
+$akkorioraren=orarendmodel::whereBetween('mikortol',[$mikrotoll->format('Y-m-d 0:0:0'),$mikrotoll->format( 'Y-m-d 23:59:59')])->get(); // DB::select('SELECT * FROM orarend where mikortol like '.$mikrotoll.'%'); //orarendmodel::whereDate('mik);
 return response()->json($akkorioraren,200,['Content-Type'=>'application/json']);
-    }
+//return response([$mikkorr,$mikrotoll->format('Y-m-d'),$mikrotoll->format('Y-m-d 0:0:0')]) ;
+}
     /**
      * Store a newly created resource in storage.
      */

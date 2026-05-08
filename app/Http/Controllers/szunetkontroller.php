@@ -30,7 +30,8 @@ if($felhasznalo->jog<4){ return response("nincs joga hozza",403); }
  $szunett=szunetekmodel::where('hanyadik',$hanyadik)->first();
 //else if($request->has('mikortol')) $lejatszas=orarendmodel::where('mikortol',$request->input('mikortol'));
 if(!($szunett)){ return response('nincs ilyen rekord',404); }
-$szunett->delete();
+szunetekmodel::where('hanyadik',$hanyadik)->limit(1)->delete();
+//$szunett->delete();
 return response('',204);
     }
     public function szunethozzaadas(Request $request){
@@ -57,11 +58,12 @@ if(!$felhasznalo){ return response("rossz token",404); }
 if($felhasznalo->jog<4){ return response("nincs joga hozza",403); }
 //$validalt=$request->validate([]);
 $validalt = Validator::make($request->all(), [['kezdes'=>['sometimes|date']],'vege'=>'sometimes|date']);
-if(is_numeric($hanyadik)){return response("hanyadik szunet nincs megfeleloen megadva",403);}
+//if(is_numeric($hanyadik)){return response("hanyadik szunet nincs megfeleloen megadva",403);}
  $szunett=szunetekmodel::where('hanyadik',$hanyadik)->first();
 //else if($request->has('mikortol')) $lejatszas=orarendmodel::where('mikortol',$request->input('mikortol'));
 if(!($szunett)){ return response('nincs ilyen rekord',404); }
-$szunett->update($request->all());
+szunetekmodel::where('hanyadik',$hanyadik)->limit(1)->update($request->only("hanyadik","kezdes","vege"));
+//$szunett->update($request->all());
 return response('',204);
     }
     public function index()
