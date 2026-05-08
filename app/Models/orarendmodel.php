@@ -14,7 +14,7 @@ $table->timestamp('meddig')->default(now());
    //$table->enum("lejatszva");
      */
      public $table = "orarend";
-    public $fillable = ["zeneid","mikortol","meddig","ujsor","CREATED_AT ","UPDATED_AT"];
+    public $fillable = ["zeneid","mikortol","meddig"];//,"ujsor","CREATED_AT ","UPDATED_AT"];
     public $timestamps=false;
     //ez igazabol egy queu amit majd egy event minden nap ujrafeltolt adatokkal
 
@@ -23,7 +23,7 @@ $table->timestamp('meddig')->default(now());
          return $szunetek[$hanyadikszunet];
     }
     public function zene(){
-    return $this->belongsToMany(zenemodel::class,"zeneid","id");
+    return $this->belongsToMany(zenemodel::class,"zeneid");
     }
 
 }

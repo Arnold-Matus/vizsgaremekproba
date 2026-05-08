@@ -310,7 +310,7 @@ $table->timestamp('meddig')->default(now());
         }
 
         //orarenddel mi legyen??
-     Db::unprepared('CREATE VIEW IF NOT EXISTS feltoltendok as select id,zeneurl from zene where zeneurl Is NULL');
+     Db::unprepared('CREATE VIEW IF NOT EXISTS feltoltendok as select id,keresurl from zene where zeneurl Is NULL');
    //  db::unprepared(' CREATE TRIGGER IF NOT EXISTS kereszenebefeltoltes  AFTER INSERT on keres FOR EACH ROW  BEGIN  INSERT INTO zene (keresurl) VALUES (NEW.zeneurl); END;');
      
 //        DB::unprepared(' CREATE TRIGGER IF NOT EXISTS zenebekeresfeltoltesorarendbe AFTER INSERT on keres FOR EACH ROW    IF ( (NEW.validalte=1 | NEW.validalte=TRUE) && ((SELECT lejatszhatoe from zene where id like NEW.zeneid LIMIT 1 ) IN (TRUE,1))) THEN INSERT INTO orarend (zeneid,mikortol,meddig) VALUES (NEW.zeneid,select meddig from orarend ORDER BY mikortol DESC LIMIT 1,
@@ -324,10 +324,11 @@ DB::unprepared(' CREATE TRIGGER IF NOT EXISTS zenebekeresfeltoltesorarendbe AFTE
      //   DB::unprepared(' CREATE TRIGGER IF NOT EXISTS zenebekeresvalidaciofrissitesorarendbehelyezes AFTER UPDATE on keres FOR EACH ROW    IF ( (NEW.validalte=1 | NEW.validalte=TRUE) && ((SELECT lejatszhatoe from zene where id like NEW.zeneid LIMIT 1 ) IN (TRUE,1))) THEN INSERT INTO orarend (zeneid,mikortol,meddig) VALUES (NEW.zeneid,select meddig from orarend ORDER BY mikortol DESC LIMIT 1,
     //    select TIMESTAMPADD(SECOND,(select hossz from zene where id like NEW.zeneid), (SELECT meddig from orarend ORDER BY mikortol  DESC LIMIT 1)));END IF;');
       DB::unprepared('CREATE VIEW IF NOT EXISTS aktivfelhasznalok as SELECT count(id) from felhasznalo where token is not null');
-    DB::unprepared('CREATE VIEW IF NOT EXISTS Lejatszhatozenek as select * from zene where zene.zeneurl is not null');
+    DB::unprepared('CREATE VIEW IF NOT EXISTS Lejatszhatozenek as select * from zene where zene.zeneurl is not null and zene.lejatszhatoe =1');
     DB::unprepared('SET SESSION time_zone ="+2:00"');
+    //DB::unprepared('CREATE TRIGGER `zenebekeresfeltoltesorarendbe2` AFTER INSERT ON `keres`FOR EACH ROW begin if ( new.validalte && (select lejatszhatoe from zene where zene.keresurl = new.zeneurl limit 1 )) then set @zeneidd=(select id from zene where zene.keresurl=NEW.zeneurl limit 1); set @mikortoll= (select orarend.meddig from orarend order by orarend.mikortol desc limit 1); -- set @hosssz=(SELECT zene.hossz from zene WHERE zene.keresurl=NEW.zeneurl LIMIT 1); set @hosssz=(select hossz from zene where zene.keresurl=NEW.zeneurl limit 1); set @meddig= ( SELECT (TIMESTAMPADD(SECOND,(@hosssz), (@mikortoll)))); set @szunett=(SELECT COUNT(szunetek.hanyadik) FROM szunetek WHERE (szunetek.kezdes<@mikortoll and szunetek.vege>@meddig)); if (@szunett=1) THEN INSERT INTO orarend(orarend.zeneid,orarend.mikortol,orarend.meddig) VALUES (@zeneidd,@meddig,@szunett); end if;END if; end');
     }
-    /**
+    /**BEGIN IF ( NEW.validalte && (SELECT lejatszhatoe from zene where zene.keresurl = NEW.zeneurl LIMIT 1 )) THEN INSERT INTO orarend (zeneid,mikortol,meddig) VALUES ((SELECT zene.id from zene where zene.keresurl = NEW.zeneurl LIMIT 1 ),(select meddig from orarend ORDER BY mikortol DESC LIMIT 1), (select TIMESTAMPADD(SECOND, (select hossz from zene where zene.keresurl like NEW.zeneurl), (SELECT meddig from orarend ORDER BY mikortol DESC LIMIT 1) )) ) ; END IF; END
      * Reverse the migrations.
      */
     public function down(): void

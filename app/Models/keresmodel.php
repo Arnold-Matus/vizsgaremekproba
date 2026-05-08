@@ -15,9 +15,11 @@ class keresmodel extends Model
           //  $table->timestamps();
           $table->timestamp("mikor");
         */
-       public $table = "felhasznalo";
-    public $fillable = ["felhasznaloid","zeneid","validalte","mikor"];
-    public $timestamps=true;
+       public $table = "keres";
+    //public $fillable = ["felhasznaloid","zeneid","validalte","mikor"];
+    public $fillable = ["felhasznaloid","zeneurl","validalte","mikor"];
+
+    public $timestamps=false;
     public function felhasznalo(){
     //return $this->belongsTo(felhasznalomodel::class,"felhasznaloid","id");
    return $this->belongsToMany(felhasznalomodel::class,"felhasznaloid","id");
