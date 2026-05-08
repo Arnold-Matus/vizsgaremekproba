@@ -1,0 +1,155 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\orarendmodel;
+use App\Models\zenemodel;
+use Carbon\Carbon;
+use DateTime;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use function Laravel\Prompts\select;
+
+class orarendkontroler extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        //
+    }public function jelenlegizeneminden(Request $r){
+    //nincs validacio, token publikus
+    $talanmostani=orarendmodel::where("meddig",">=",Carbon::now())->orderBy("mikortol")->limit(1)->first();
+
+    if(empty($talanmostani)){return response("nincs",404);}
+    if($talanmostani->mikor>=Carbon::now()){return response(zenemodel::where('keresurl',$talanmostani->zeneid)->first(),"200");}
+    }
+    public function jelenlegizene(Request $r){
+    //nincs validacio, token publikus
+   // $talanmostani=orarendmodel::where("meddig",">=",Carbon::now())->orderBy("mikor")->limit(1)->first();
+ $talanmostani=orarendmodel::where("meddig",">",Carbon::now())->where('mikortol',"<",Carbon::now())->first();//->orderBy("mikor")->limit(1)->first();
+
+    if(empty($talanmostani)){return response("nincs",404);}
+   // if($talanmostani->mikor>=Carbon::now()){return response($talanmostani->zeneid,"200");}
+   return response(\App\Models\zenemodel::where('id',$talanmostani->zeneid)->first()->toArray(),"200");
+    }
+    public function  lejatszastorles(Request $request){
+
+ $token = $request->header( "token");
+    if(empty($token)){ return response("nincs token megadva",404);}
+     $felhasznalo= app(felhasznalokontroller::class)->tokenheztartozofelhasznalo($token);
+if(!$felhasznalo){ return response("rossz token",404); }
+if($felhasznalo->jog<4){ return response("nincs joga hozza",403); }
+//$validalt=$request->validate([]);
+$validalt = Validator::make($request->all(), ['id'=>'required_without_all:mikortol|numeric|min:1',['mikortol'=>['required_without_all:id|date']]]);
+if($validalt->fails()){return response("rossz adatok megadva",403);}
+if($request->has("id")) $lejatszas=orarendmodel::find($request->input('id'));
+else if($request->has('mikortol')) $lejatszas=orarendmodel::where('mikortol',$request->input('mikortol'));
+if(!($lejatszas)){ return response('nincs ilyen rekord',404); }
+$lejatszas->delete();
+return response('',204);
+    }
+    public function mainapiorarend(Request $request){
+
+//$token = $request->header( "token");
+  //  if(empty($token)){ return response()->json("nincs token megadva",404);}
+ //    $felhasznalo= app(felhasznalokontroller::class)->tokenheztartozofelhasznalo($token);
+//if(!$felhasznalo){ return response()->json("rossz token",404); }
+//if($felhasznalo->jog<4){ return response("nincs joga hozza",403); }
+//$validalt=$request->validate([]);
+//$validalt = Validator::make($request->all(), ['id'=>'required_without_all:mikortol|numeric|min:1',['mikortol'=>['required_without_all:id|date']]]);
+//if($validalt->fails()){return response("rossz adatok megadva",403);}
+$maiorarend= orarendmodel::whereBetween('mikortol',[today()->startOfDay(),today()->endOfDay()])->get();
+return response()->json($maiorarend,200,['Content-Type'=>'application/json']);
+    }
+    public function teljesorarend(Request $request){
+
+$token = $request->header( "token");
+    if(empty($token)){ return response()->json("nincs token megadva",404);}
+     $felhasznalo= app(felhasznalokontroller::class)->tokenheztartozofelhasznalo($token);
+if(!$felhasznalo){ return response()->json("rossz token",404); }
+if($felhasznalo->jog<2){ return response("nincs joga hozza",403); }
+//$validalt=$request->validate([]);
+//$validalt = Validator::make($request->all(), ['id'=>'required_without_all:mikortol|numeric|min:1',['mikortol'=>['required_without_all:id|date']]]);
+//if($validalt->fails()){return response("rossz adatok megadva",403);}
+$teljes= orarendmodel::all();
+return response()->json($teljes,200,['Content-Type'=>'application/json']);
+    }
+    public function kovetkezolejatszas(Request $request){
+ //    $token = $request->header( "token");
+ //   if(empty($token)){ return response("nincs token megadva",404);}
+ //    $felhasznalo= app(felhasznalokontroller::class)->tokenheztartozofelhasznalo($token);
+//if(!$felhasznalo){ return response("rossz token",404); }
+//if($felhasznalo->jog<4){ return response("nincs joga hozza",403); }
+$kovetkezo=orarendmodel::where('mikortol','>',now())->orderBy('mikortol')->first();//->orderByDesc('mikortol')->first();
+return response()->json($kovetkezo,200,['Content-Type'=> 'application/json']);
+    }
+    public function lejatszasmanualishozzaadasa(Request $r){
+        $token= $r->header("token");
+        if(!$token|empty($token)){return response("nincs token megadva",404);}
+    $felhasznalo= app(felhasznalokontroller::class)->tokenheztartozofelhasznalo($token);
+if(!$felhasznalo){ return response("rossz token",404); }
+if($felhasznalo->jog<4){ return response("nincs joga hozza",403); }
+$validalt= Validator::make($r->all(), ['zeneid'=>'required|numeric|min:1',['mikortol'=>['required|date']],'meddig'=>'required|date']);
+if($validalt->fails()){return response("rossz adatok megadva",403);}
+    orarendmodel::create($r->only(['zeneid','mikortol','meddig']));    
+return response('',204);
+}
+public function xnapiorarend(Request $request,$mikkorr){
+
+//$token = $request->header( "token");
+  //  if(empty($token)){ return response()->json("nincs token megadva",404);}
+ //    $felhasznalo= app(felhasznalokontroller::class)->tokenheztartozofelhasznalo($token);
+//if(!$felhasznalo){ return response()->json("rossz token",404); }
+//if($felhasznalo->jog<4){ return response("nincs joga hozza",403); }
+//$validalt=$request->validate([]);
+//$validalt = Validator::make($request->all(), ['id'=>'required_without_all:mikortol|numeric|min:1',['mikortol'=>['required_without_all:id|date']]]);
+//if($validalt->fails()){return response("rossz adatok megadva",403);}
+//$mikkorr=\strtotime($mikkorr);
+$mm=$mikkorr." 00:00:00"; 
+$mikrotoll= \DateTime::createFromFormat('Y-m-d H:i:s', $mm);//->format('Y-m-d');
+
+//$mikrotoll= \DateTime::createFromFormat('Y-m-d', $mikkorr);//->format('Y-m-d');
+//$mikrotollk= $mikrotoll->setTime(0, 0, 0);
+//$eddig = $mikrotoll->setTime(23,59,59);
+//$nap=date('Y-M-D h:i:s',strtotime( $mikkorr));
+//$nap= getdate( strtotime( $mikkorr));
+//$akkorioraren=orarendmodel::whereBetween('mikortol',[$mikrotollk->getTimestamp()->startOfDay(),$eddig->getTimestamp()->endOfDay()])->get(); // DB::select('SELECT * FROM orarend where mikortol like '.$mikrotoll.'%'); //orarendmodel::whereDate('mik);
+$akkorioraren=orarendmodel::whereBetween('mikortol',[$mikrotoll->format('Y-m-d 0:0:0'),$mikrotoll->format( 'Y-m-d 23:59:59')])->get(); // DB::select('SELECT * FROM orarend where mikortol like '.$mikrotoll.'%'); //orarendmodel::whereDate('mik);
+return response()->json($akkorioraren,200,['Content-Type'=>'application/json']);
+//return response([$mikkorr,$mikrotoll->format('Y-m-d'),$mikrotoll->format('Y-m-d 0:0:0')]) ;
+}
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(orarendmodel $orarendmodel)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, orarendmodel $orarendmodel)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(orarendmodel $orarendmodel)
+    {
+        //
+    }
+}
